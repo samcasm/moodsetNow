@@ -1,7 +1,9 @@
 (function(){
-	var script = document.createElement('script');
-	script.src = 'https://accounts.spotify.com/authorize?client_id=a2675007fa4d48409facbac791af9e2d&response_type=code&redirect_uri=https://samcasm.github.io/moodsetNow/moodset.html&scope=user-read-private%20user-read-email&state=34fFs29kd09?callback=mySpotify';
-	document.getElementsByTagName('body')[0].appendChild(script);
+	location.href = "https://accounts.spotify.com/authorize" + 
+    			"?client_id=" + "a2675007fa4d48409facbac791af9e2d" +
+    			"&response_type=token" + 
+    			"&redirect_uri=" + encodeURIComponent("https://samcasm.github.io/moodsetNow/callback.js") + 
+    			"";
 })();
 
 function mySpotify(){
