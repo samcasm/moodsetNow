@@ -6,5 +6,10 @@ location.hash.slice(1).split('&').forEach(function(pair) {
 if (hash.error) {
     console.log(hash.error);
 } else {
-    token = hash.access_token;
+    var token = hash.access_token;
+    hash.token_type === "Bearer";
+    var expiry = new Date();
+    expiry.setSeconds(expiry.getSeconds() + (+hash.expires_in));
+    console.log(token);
+    console.log(hash);
 }
