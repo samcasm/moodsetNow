@@ -1,0 +1,59 @@
+h3{
+	display: inline;
+}
+
+table,th,td{
+	text-align: center;
+	margin: 0 auto;
+	
+}
+
+ul{
+	display: inline-block;
+}
+
+li{
+	font-size: 2em;
+	font-weight: bold;
+	list-style: none;
+}
+i{
+	display: inline-block;
+}
+
+.header{
+	text-align: center;
+}
+
+.weather-icon{
+	margin:0 auto;
+	text-align: center;
+}
+
+.content{
+	width:500px;
+	margin: 0 auto;
+}
+
+.body-weather{
+	text-align: center;
+}
+
+.first-li{
+	font-size: 62px;
+}
+
+.weather-button{
+	outline:none;
+}
+
+#create-button{
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+	visibility: hidden;
+}
+
+#table-show-playlist{
+	visibility: hidden;
+}
