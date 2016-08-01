@@ -1,4 +1,4 @@
-function callback(){
+
     var hash = {};
     location.hash.slice(1).split('&').forEach(function(pair) {
         pair = pair.split('=');
@@ -14,5 +14,4 @@ function callback(){
         console.log(token);
         console.log(hash);
     }
-}
 
