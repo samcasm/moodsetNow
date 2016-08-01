@@ -1,22 +1,13 @@
 (function(){
-	//firing HTTPS request to SPOTIFY API AUTH
-	var xmlhttp = new XMLHttpRequest();
-	var url="https://accounts.spotify.com/authorize?client_id=a2675007fa4d48409facbac791af9e2d&response_type=code&redirect_uri=https://samcasm.github.io/latestMoodset/moodset.html&scope=user-read-private%20user-read-email&state=34fFs29kd09";
-    
-    //check status of fired request
-	xmlhttp.onreadystatechange = function() {
-	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-	        var response = JSON.parse(xmlhttp.responseText);
-	        mySpotify(response);
-	    }
-	};
-	xmlhttp.open("GET", url, true);
-	xmlhttp.send();
+	var script = document.createElement('script');
+	script.src = 'https://accounts.spotify.com/authorize?client_id=a2675007fa4d48409facbac791af9e2d&response_type=code&redirect_uri=https://samcasm.github.io/latestMoodset/moodset.html&scope=user-read-private%20user-read-email&state=34fFs29kd09?callback=mySpotify';
+	document.getElementsByTagName('body')[0].appendChild(script);
 })();
 
 function mySpotify(){
 	console.log(response);
 }
+
 
 
 var button = document.querySelector("button");
