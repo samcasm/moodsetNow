@@ -22,7 +22,7 @@ var hash = function(){
 			    console.log(token);
 			    console.log(hash);
 			    return hash;	
-			}
+			 }
 		}
 //calling the above hash function when page loads
 hash();
