@@ -190,7 +190,7 @@ function spotifyFunction(response){
 		$.ajax({
 		   url: 'https://api.spotify.com/v1/me',
 		   headers: {
-		       'Authorization': 'Bearer ' + accessToken
+		       'Authorization': 'Bearer ' + "BQBY9aIcWa4moayWFGrZjGALZPNSiNBQQT8z9GGauxG6a2QjjWPWl628e4j5SR03VO7YOG_crhtTqMPWOeuTghlDFWAvEMKPLLy2BBeVe1wRpdVi_4bXhq8iRsDfBMSukKTlepAvwg"
 		   },
 		   success: function(response) {
 		       console.log(response);
