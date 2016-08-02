@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MOODSET</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/weather-icons.min.css">
+	<link rel="stylesheet" type="text/css" href="css/moodset.css">
+	
+</head>
+<body>
+	<div class="content">
+		<div class="header">
+            <h1>MOODSET</h1>
+            <button id = "button1" style="display:block; margin:0 auto;" class="btn btn-success">Log-in to Spotify!</button>
+            <h3>Where you at ? </h3>
+            <input class="city" type="text"  placeholder="city">
+            <button class="btn btn-info weather-button">Check weather</button>
+        </div>
+        <hr>
+        <div class="body-weather">
+        	<div class="weather-icon">
+        		<canvas id="icon1" width="128" height="128"></canvas>
+        		<ul>
+        			<li class="first-li" ><p class="icon-temperature"></p></li>
+        			<li><p class="icon-summary"></p></li>
+        		</ul>
+				<button id="create-button" class=" btn btn-success">Show playlists</button>        	
+			</div>
+		</div>
+		<div>
+			<table id = "table-show-playlist" class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Image</th>
+						<th>Name</th>
+					</tr>
+				</thead>
+				<tbody class="show-playlists">
+					
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+	<script type="text/javascript" src="moodset.js"></script>
+	<script type="text/javascript" src="skycons.js"></script>
+	<!--<script type="text/javascript" src="https://samcasm.github.io/moodsetNow/callback.js"></script>-->
+
+</body>
+</html>
