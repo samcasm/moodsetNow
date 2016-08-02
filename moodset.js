@@ -29,7 +29,7 @@ button.addEventListener("click",function(){
 	var xmlhttp = new XMLHttpRequest();
 	var url="https://maps.googleapis.com/maps/api/geocode/json?address="+inputCity+"&key=AIzaSyD9ezq1BBd3Ln2qo7HaR58MfdahswMzcKM";
     
-    //check status of fired request
+     //check status of fired request
 	xmlhttp.onreadystatechange = function() {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 	        var response = JSON.parse(xmlhttp.responseText);
