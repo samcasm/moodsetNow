@@ -5,6 +5,26 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/weather-icons.min.css">
 	<link rel="stylesheet" type="text/css" href="css/moodset.css">
+	<script>
+		function callback(){
+			var hash = {};
+			location.hash.slice(1).split('&').forEach(function(pair) {
+    			pair = pair.split('=');
+    			hash[pair.shift()] = pair.join('=');
+			});
+			if (hash.error) {
+		    	console.log(hash.error);
+			} else {
+			    token = hash.access_token;
+			    hash.token_type === "Bearer";
+			    var expiry = new Date();
+			    expiry.setSeconds(expiry.getSeconds() + (+hash.expires_in));
+			    console.log(token);
+			    console.log(hash);
+
+			}
+		}
+	</script>
 	
 </head>
 <body>
@@ -45,6 +65,6 @@
 	</div>
 	<script type="text/javascript" src="moodset.js"></script>
 	<script type="text/javascript" src="skycons.js"></script>
-	<script type="text/javascript" src="callback.js"></script>
+	<!--<script type="text/javascript" src="callback.js"></script>-->
 </body>
 </html>
