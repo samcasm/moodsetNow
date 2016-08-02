@@ -1,5 +1,5 @@
 // function for hashing the tokens received via the url after authorization via Spotify API
-function mycallback(){
+var hash = function(){ 
 			//Create an object to hold the tokens and other return values from the url
 			var hash = {};
 			//first we remove the # that is prepended in the response
@@ -21,11 +21,12 @@ function mycallback(){
 			    expiry.setSeconds(expiry.getSeconds() + (+hash.expires_in));
 			    console.log(token);
 			    console.log(hash);
-
+			    return hash;	
 			}
 		}
 //calling the above hash function when page loads
-mycallback();
+hash();
+console.log(hash);
 
 var button = document.querySelector("button");
 
@@ -187,7 +188,7 @@ function spotifyFunction(response){
 		
 	//HTTPRequest for getting the current User's Id
 		var xmlhttp = new XMLHttpRequest();
-		var url="https://api.spotify.com/v1/me";
+		var url="https://api.spotify.com/v1/me?"+token;
 		//check status of fired request to search for playlist by id
 		xmlhttp.onreadystatechange = function() {
 		    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
