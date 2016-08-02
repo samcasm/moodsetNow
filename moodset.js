@@ -1,4 +1,3 @@
-
 function mycallback(){
 			var hash = {};
 			location.hash.slice(1).split('&').forEach(function(pair) {
