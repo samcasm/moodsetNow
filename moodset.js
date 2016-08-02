@@ -198,7 +198,7 @@ function spotifyFunction(response){
 		       
 		       //HTTPRequest for getting the tracks of a playlist with playlist ID
 			$.ajax({
-		   		url: 'https://api.spotify.com/v1/users/"+user_id+"/playlists/7CVRBY0rCMDM5ypcu9xNlK/tracks',
+		   		url: 'https://api.spotify.com/v1/users/spotify/playlists/4VdGfQ7e2nOWrbgICihny1/tracks',
 		   	headers: {
   				'Authorization': 'Bearer ' + token,
   		   	},
