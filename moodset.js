@@ -26,7 +26,7 @@ function mycallback(){
 		}
 //calling the above hash function when page loads
 var hash = mycallback();
-
+console.log(hash);
 
 var button = document.querySelector("button");
 
