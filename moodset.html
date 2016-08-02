@@ -15,7 +15,7 @@
 			if (hash.error) {
 		    	console.log(hash.error);
 			} else {
-			    token = hash.access_token;
+			    var token = hash.access_token;
 			    hash.token_type === "Bearer";
 			    var expiry = new Date();
 			    expiry.setSeconds(expiry.getSeconds() + (+hash.expires_in));
