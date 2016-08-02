@@ -186,6 +186,7 @@ function spotifyFunction(response){
 		console.log(playlistIds);
 		
 	//HTTPRequest for getting the current User's Id
+		var xmlhttp = new XMLHttpRequest();
 		var url="https://api.spotify.com/v1/me";
 		//check status of fired request to search for playlist by id
 		xmlhttp.onreadystatechange = function() {
