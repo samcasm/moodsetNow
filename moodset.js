@@ -190,25 +190,26 @@ function spotifyFunction(response){
 		$.ajax({
 		   url: 'https://api.spotify.com/v1/me',
 		   headers: {
-		       'Authorization': 'Bearer ' + "BQBY9aIcWa4moayWFGrZjGALZPNSiNBQQT8z9GGauxG6a2QjjWPWl628e4j5SR03VO7YOG_crhtTqMPWOeuTghlDFWAvEMKPLLy2BBeVe1wRpdVi_4bXhq8iRsDfBMSukKTlepAvwg"
-		   },
+  			'Authorization': 'Bearer ' + token,
+  		   },
 		   success: function(response) {
 		       console.log(response);
+		       user_id = response.id;
 		   }
 		});
 	
-	// //HTTPRequest for getting the tracks of a playlist with playlist ID
-	// 	var xmlhttp = new XMLHttpRequest();
-	// 	var url="https://api.spotify.com/v1/users/BQDet2Rs5IrmQRxDS33CordwJI_NS5UAtCoOqk2sqIQxvFrWwvr3sM81erFOiZI-pkzwaF25hmB3S1B5Qpo6vZ1n_rxSZI6JCO5KVtPfVefpbusTzEZZu_hzitbsSxqG3Ib40bZANg/playlists/2gtr2Tf686zXqjQNiYNPQW/tracks";
-	// 	//check status of fired request to search for playlist by id
-	// 	xmlhttp.onreadystatechange = function() {
-	// 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-	// 	        var response = JSON.parse(xmlhttp.responseText);
-	// 	        spotifyPlaylistMaker(response);
-	// 	    }
-	// 	};
-	// 	xmlhttp.open("GET", url, true);
-	// 	xmlhttp.send();
+	//HTTPRequest for getting the tracks of a playlist with playlist ID
+		var xmlhttp = new XMLHttpRequest();
+		var url="https://api.spotify.com/v1/users/"+user_id+"/playlists/7CVRBY0rCMDM5ypcu9xNlK/tracks";
+		//check status of fired request to search for playlist by id
+		xmlhttp.onreadystatechange = function() {
+		    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		        var response = JSON.parse(xmlhttp.responseText);
+		        spotifyPlaylistMaker(response);
+		    }
+		};
+		xmlhttp.open("GET", url, true);
+		xmlhttp.send();
 
 }
 
