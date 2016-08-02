@@ -136,6 +136,7 @@ function hoora(response){
 }
 
 function spotifyFunction(response){
+	console.log(response);
 	var playlists = response.playlists.items;
 	var showPlaylists = document.querySelector(".show-playlists");
 	showPlaylists.innerHTML = " ";
@@ -146,8 +147,6 @@ function spotifyFunction(response){
 		newImg.src = imgSrc;
 		newImg.style.height = "100px";
 		newImg.style.height = "100px";
-		console.log(imgSrc);
-		console.log(newImg);
 		var playlistTitle = playlist.name;
 		
 		
