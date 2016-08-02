@@ -197,17 +197,16 @@ function spotifyFunction(response){
 		       var user_id = response.id;
 		       
 		       //HTTPRequest for getting the tracks of a playlist with playlist ID
-			var xmlhttp = new XMLHttpRequest();
-			var url="https://api.spotify.com/v1/users/"+user_id+"/playlists/7CVRBY0rCMDM5ypcu9xNlK/tracks";
-			//check status of fired request to search for playlist by id
-			xmlhttp.onreadystatechange = function() {
-			    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			        var response = JSON.parse(xmlhttp.responseText);
-			        spotifyPlaylistMaker(response);
-			    }
-			};
-			xmlhttp.open("GET", url, true);
-			xmlhttp.send();
+			$.ajax({
+		   		url: 'https://api.spotify.com/v1/users/"+user_id+"/playlists/7CVRBY0rCMDM5ypcu9xNlK/tracks',
+		   	headers: {
+  				'Authorization': 'Bearer ' + token,
+  		   	},
+		   	success: function(response) {
+		       		console.log(response);
+		       		
+		   		}
+			});
 		       
 		   }
 		});
