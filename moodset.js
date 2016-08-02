@@ -1,5 +1,5 @@
 // function for hashing the tokens received via the url after authorization via Spotify API
-var hash = function(){ 
+function mycallback(){ 
 			//Create an object to hold the tokens and other return values from the url
 			var hash = {};
 			//first we remove the # that is prepended in the response
@@ -25,8 +25,8 @@ var hash = function(){
 			 }
 		}
 //calling the above hash function when page loads
-hash();
-console.log(hash);
+var hash = mycallback();
+
 
 var button = document.querySelector("button");
 
