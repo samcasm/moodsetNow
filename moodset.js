@@ -27,7 +27,7 @@ function mycallback(){
 		}
 mycallback();
 
-var button = document.querySelector("button");
+var button = document.querySelector(".weather-button");
 
 button.addEventListener("click",function(){
 	var inputCity = document.querySelector(".city").value;
