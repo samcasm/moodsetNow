@@ -187,17 +187,15 @@ function spotifyFunction(response){
 		console.log(playlistIds);
 		
 	//HTTPRequest for getting the current User's Id
-		var xmlhttp = new XMLHttpRequest();
-		var url="https://api.spotify.com/v1/me?"+hash;
-		//check status of fired request to search for playlist by id
-		xmlhttp.onreadystatechange = function() {
-		    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-		        var response = JSON.parse(xmlhttp.responseText);
-		        spotifyPlaylistMaker(response);
-		    }
-		};
-		xmlhttp.open("GET", url, true);
-		xmlhttp.send();
+		$.ajax({
+		   url: 'https://api.spotify.com/v1/me',
+		   headers: {
+		       'Authorization': 'Bearer ' + accessToken
+		   },
+		   success: function(response) {
+		       console.log(response);
+		   }
+		});
 	
 	// //HTTPRequest for getting the tracks of a playlist with playlist ID
 	// 	var xmlhttp = new XMLHttpRequest();
