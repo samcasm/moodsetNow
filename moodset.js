@@ -121,7 +121,8 @@ function hoora(response){
 	}
 
 	var url="https://api.spotify.com/v1/search?q=" + query + "&limit=4&type=playlist";
-    
+       console.log(url);
+       console.log(query);
     //check status of fired request
 	xmlhttp.onreadystatechange = function() {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
