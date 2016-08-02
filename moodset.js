@@ -26,6 +26,8 @@ function mycallback(){
 
 			}
 		}
+		
+mycallback();
 
 var button = document.querySelector("button");
 
