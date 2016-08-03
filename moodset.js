@@ -20,7 +20,7 @@ function mycallback(){
 			    var expiry = new Date();
 			    expiry.setSeconds(expiry.getSeconds() + (+hash.expires_in));
 			    return hash;	
-			 }
+			 } 
 		}
 //calling the above hash function when page loads
 var hash = mycallback();
