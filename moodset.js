@@ -191,6 +191,10 @@ function spotifyFunction(response){
 		});
 		console.log(playlistUrls);
 		
+		if(tracks.length>0){
+		tracks = [];
+		tracks.length = 0;
+		}
 	
 	    
 		//HTTPRequest for getting the tracks of a playlist with playlist ID
