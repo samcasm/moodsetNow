@@ -187,7 +187,7 @@ function spotifyFunction(response){
 		//HTTPRequest for getting the tracks of a playlist with playlist ID
 		playlistIds.forEach(function(playlistID){
 			$.ajax({
-				url: 'https://api.spotify.com/v1/users/spotify/playlists/'+playlistID  +'/tracks',
+				url: 'https://api.spotify.com/v1/users/spotify/playlists/'+playlistID  +'/tracks?limit=10',
 				headers: {
 		  				'Authorization': 'Bearer ' + token,
 		  		   	},
@@ -199,5 +199,16 @@ function spotifyFunction(response){
 
 
 		});   
+		
+		$.ajax({
+				url: 'https://api.spotify.com/v1/users/spotify/playlists/'+playlistIds[0]  +'/tracks?limit=10',
+				headers: {
+		  				'Authorization': 'Bearer ' + token,
+		  		   	},
+				success: function(response) {
+				       	console.log(response);
+				       		
+				   	}
+			});
 }
 
