@@ -250,7 +250,7 @@ function makeFinalPlaylist(newTracks){
 		trackDurationTD.innerHTML = totalDuration['m'] + ":" + totalDuration['s'];
 		tr.appendChild(trackDurationTD);
 
-		var finalPlaylist = document.querySelector("final-playist");
+		var finalPlaylist = document.querySelector(".final-playlist");
 		finalPlaylist.appendChild(tr);
 
 	}
