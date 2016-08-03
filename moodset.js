@@ -198,7 +198,17 @@ function spotifyFunction(response){
 				       	playlistTracks.forEach(function(track){
 				       		tracks.push(track);
 				       	});
+				       	tracks.filter(function(track){
+				       		var duration_ms = track.track.duration_ms;
+				       		return parseInt(duration_ms)>60000 ; 
+				       	});
+				       	
+				       	tracks.sort(function(a,b){
+				       		return a.track.popularity-b.track.popularity ;
+				       	})
 				       	console.log(tracks);
+				       	var newTracks = tracks.slice(0,10);
+				       	console.log(newTracks);
 				       		
 				   	}
 			});
