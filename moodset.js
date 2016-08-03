@@ -206,13 +206,69 @@ function spotifyFunction(response){
 				       	tracks.sort(function(a,b){
 				       		return b.track.popularity-a.track.popularity ;
 				       	})
-				       	console.log(tracks);
+				       
 				       	var newTracks = tracks.slice(0,10);
 				       	console.log(newTracks);
+				       	
+				       	var finalPlaylistButton = document.querySelector(".finalPlaylistButton");
+				       	finalPlaylistButton.addEventListener("click",makeFinalPlaylist(newTracks));
 				       		
 				   	}
 			});
 
 
 		});   
+}
+
+//display final mashed up playlist 
+function makeFinalPlaylist(newTracks){
+
+	for(i=0;i<newTracks.length;i++){
+		var tr = document.createElement("tr");
+		var numberTD = document.createElement("td");
+		var playButtonTD = document.createElement("td");
+		var trackNameTD = document.createElement("td");
+		var trackArtistTD = document.createElement("td");
+		var trackDurationTD = document.createElement("td");
+
+		numberTD.innerHTML = i;
+		tr.appendChild(numberTD);
+
+		playButtonTD.className = "glyphicon glyphicon-play";
+		tr.appendChild(playButtonTD);
+
+		trackNameTD.innerHTML = newTracks[i].track.name;
+		tr.appendChild(trackNameTD);
+
+		trackArtistTD.innerHTML = newTracks[i].track.artists[0].name;
+		tr.appendChild(trackArtistTD);
+
+		var durationInSeconds = newTracks[i].track.duration_ms/1000;
+		var totalDuration = secondsToTime(durationInSeconds);
+		totalDurationTD.innerHTML = totalDuration[h] + ":" + totalDuration[m];
+		tr.appendChild(trackDurationTD);
+
+		var finalPlaylist = document.querySelector("final-playist");
+		finalPlaylist.appendChild(tr);
+
+	}
+
+}
+
+function secondsToTime(secs)
+{
+    var hours = Math.floor(secs / (60 * 60));
+   
+    var divisor_for_minutes = secs % (60 * 60);
+    var minutes = Math.floor(divisor_for_minutes / 60);
+ 
+    var divisor_for_seconds = divisor_for_minutes % 60;
+    var seconds = Math.ceil(divisor_for_seconds);
+   
+    var obj = {
+        "h": hours,
+        "m": minutes,
+        "s": seconds
+    };
+    return obj;
 }
