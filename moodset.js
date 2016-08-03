@@ -244,9 +244,7 @@ function makeFinalPlaylist(newTracks){
 		tr.appendChild(trackArtistTD);
 
 		var durationInSeconds = newTracks[i].track.duration_ms/1000;
-		console.log(durationInSeconds);
 		var totalDuration = secondsToTime(durationInSeconds);
-		console.log(totalDuration);
 		trackDurationTD.innerHTML = totalDuration['m'] + ":" + totalDuration['s'];
 		tr.appendChild(trackDurationTD);
 
