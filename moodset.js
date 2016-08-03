@@ -210,7 +210,7 @@ function spotifyFunction(response){
 				       	var newTracks = tracks.slice(0,10);
 				       	console.log(newTracks);
 				       	
-				       	var finalPlaylistButton = document.querySelector(".finalPlaylistButton");
+				       	var finalPlaylistButton = document.querySelector(".final-playlist-button");
 				       	finalPlaylistButton.addEventListener("click",makeFinalPlaylist(newTracks));
 				       		
 				   	}
@@ -255,8 +255,7 @@ function makeFinalPlaylist(newTracks){
 
 }
 
-function secondsToTime(secs)
-{
+function secondsToTime(secs){
     var hours = Math.floor(secs / (60 * 60));
    
     var divisor_for_minutes = secs % (60 * 60);
