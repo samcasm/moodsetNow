@@ -185,16 +185,20 @@ function spotifyFunction(response){
 		console.log(playlistUrls);
 		
 	
-		    
+	var tracks = []	;	    
 		//HTTPRequest for getting the tracks of a playlist with playlist ID
 		playlistUrls.forEach(function(playlistURL){
 			$.ajax({
-				url: playlistURL + "?limit=10",
+				url: playlistURL,
 				headers: {
 		  				'Authorization': 'Bearer ' + token,
 		  		   	},
 				success: function(response) {
-				       	console.log(response);
+					var playlistTracks = response.items ; 
+				       	playlistTracks.forEach(function(track){
+				       		tracks.push(track);
+				       	});
+				       	console.log(tracks);
 				       		
 				   	}
 			});
