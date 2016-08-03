@@ -26,6 +26,7 @@ function mycallback(){
 var hash = mycallback();
 console.log(hash);
 
+var tracks = []	;
 var button = document.querySelector("button");
 
 button.addEventListener("click",function(){
@@ -185,7 +186,7 @@ function spotifyFunction(response){
 		console.log(playlistUrls);
 		
 	
-	var tracks = []	;	    
+	    
 		//HTTPRequest for getting the tracks of a playlist with playlist ID
 		playlistUrls.forEach(function(playlistURL){
 			$.ajax({
@@ -199,31 +200,33 @@ function spotifyFunction(response){
 				       		tracks.push(track);
 				       		console.log(tracks);
 				       	});
+				       	
 				 }
 			});
 			
 		}); 
-		console.log(tracks);
-		tracks.filter(function(track){
-			var duration_ms = track.track.duration_ms;
-			return parseInt(duration_ms)>60000 ; 
-		});
-		console.log(tracks);		       	
-		tracks.sort(function(a,b){
-			return b.track.popularity-a.track.popularity ;
-		});
-		console.log(tracks);	       
-		var newTracks = tracks.slice(0,10);
-		console.log(newTracks);
 				       	
-		var finalPlaylistButton = document.querySelector(".final-playlist-button");
-		finalPlaylistButton.addEventListener("click",makeFinalPlaylist(newTracks));
-		
-		
 }
+
+	
+					
+var finalPlaylistButton = document.querySelector(".final-playlist-button");
+finalPlaylistButton.addEventListener("click",makeFinalPlaylist(tracks));
+
 
 //display final mashed up playlist 
 function makeFinalPlaylist(newTracks){
+	
+	tracks.filter(function(track){
+	var duration_ms = track.track.duration_ms;
+		return parseInt(duration_ms)>60000 ; 
+	});
+	tracks.sort(function(a,b){
+		return b.track.popularity-a.track.popularity ;
+	});
+					
+	var newTracks = tracks.slice(0,10);
+	console.log(newTracks);
 
 	for(i=0;i<newTracks.length;i++){
 		var tr = document.createElement("tr");
