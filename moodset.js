@@ -27,9 +27,9 @@ var hash = mycallback();
 console.log(hash);
 
 var tracks = []	;
-var button = document.querySelector("button");
+var weatherButton = document.querySelector("weather-button");
 
-button.addEventListener("click",function(){
+weatherButton.addEventListener("click",function(){
 	var inputCity = document.querySelector(".city").value;
 
 	///////////////////   GOOGLE MAPS GEOCODER API   ///////////////////////////////
