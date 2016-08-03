@@ -198,26 +198,27 @@ function spotifyFunction(response){
 				       	playlistTracks.forEach(function(track){
 				       		tracks.push(track);
 				       	});
-				       	tracks.filter(function(track){
-				       		var duration_ms = track.track.duration_ms;
-				       		return parseInt(duration_ms)>60000 ; 
-				       	});
-				       	
-				       	tracks.sort(function(a,b){
-				       		return b.track.popularity-a.track.popularity ;
-				       	})
-				       
-				       	var newTracks = tracks.slice(0,10);
-				       	console.log(newTracks);
-				       	
-				       	var finalPlaylistButton = document.querySelector(".final-playlist-button");
-				       	finalPlaylistButton.addEventListener("click",makeFinalPlaylist(newTracks));
-				       		
-				   	}
+				 }
 			});
-
-
-		});   
+			
+		}); 
+		
+		tracks.filter(function(track){
+			var duration_ms = track.track.duration_ms;
+			return parseInt(duration_ms)>60000 ; 
+		});
+				       	
+		tracks.sort(function(a,b){
+			return b.track.popularity-a.track.popularity ;
+		});
+				       
+		var newTracks = tracks.slice(0,10);
+		console.log(newTracks);
+				       	
+		var finalPlaylistButton = document.querySelector(".final-playlist-button");
+		finalPlaylistButton.addEventListener("click",makeFinalPlaylist(newTracks));
+		
+		
 }
 
 //display final mashed up playlist 
