@@ -220,7 +220,7 @@ function spotifyFunction(response){
 				       				console.log(track.track.name,'track.track.name');
 				       				console.log(typeof itemName,'typeof itemName');
 				       				console.log(itemName,'itemName');
-				       				if(!itemName == track.track.name){
+				       				if(!(itemName == track.track.name)){
 				       					tracks.push(track);
 				       					console.log(tracks);
 				       					checkDuplicates.push(track.track.name);
