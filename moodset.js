@@ -178,16 +178,18 @@ function spotifyFunction(response){
 	document.querySelector("#table-show-playlist").style.visibility="visible";
 
 	//collect playlist ids an array
-		var playlistIds = new Array();
+		var playlistUrls = new Array();
 		playlists.forEach(function(playlist){
-			playlistIds.push(playlist.id);
+			playlistUrls.push(playlist.tracks.href);
 		});
-		console.log(playlistIds);
+		console.log(playlistUrls);
 		
+	
+		    
 		//HTTPRequest for getting the tracks of a playlist with playlist ID
-		playlistIds.forEach(function(playlistID){
+		playlistUrls.forEach(function(playlistURL){
 			$.ajax({
-				url: 'https://api.spotify.com/v1/users/spotify/playlists/'+playlistID  +'/tracks?limit=10',
+				url: playlistUrl,
 				headers: {
 		  				'Authorization': 'Bearer ' + token,
 		  		   	},
@@ -199,16 +201,4 @@ function spotifyFunction(response){
 
 
 		});   
-		
-		$.ajax({
-				url: 'https://api.spotify.com/v1/users/spotify/playlists/'+playlistIds[0]  +'/tracks?limit=10',
-				headers: {
-		  				'Authorization': 'Bearer ' + token,
-		  		   	},
-				success: function(response) {
-				       	console.log(response);
-				       		
-				   	}
-			});
 }
-
