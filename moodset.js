@@ -19,8 +19,6 @@ function mycallback(){
 			    hash.token_type === "Bearer";
 			    var expiry = new Date();
 			    expiry.setSeconds(expiry.getSeconds() + (+hash.expires_in));
-			    console.log(token);
-			    console.log(hash);
 			    return hash;	
 			 }
 		}
@@ -186,7 +184,7 @@ function spotifyFunction(response){
 		});
 		console.log(playlistIds);
 		
-	//HTTPRequest for getting the current User's Id
+		//HTTPRequest for getting the current User's Id
 		$.ajax({
 		   url: 'https://api.spotify.com/v1/me',
 		   headers: {
@@ -196,31 +194,31 @@ function spotifyFunction(response){
 		       console.log(response);
 		       var user_id = response.id;
 		       
-		       $.ajax({
-		   url: 'https://api.spotify.com/v1/me',
-		   headers: {
-  			'Authorization': 'Bearer ' + token,
-  		   },
-		   success: function(response) {
-		       console.log(response);
-		       var user_id = response.id;
-		    
-			//HTTPRequest for getting the tracks of a playlist with playlist ID
-			playlists.forEach(function(playlist){
-				$.ajax({
-				   	url: 'https://api.spotify.com/v1/users/spotify/playlists/'+playlist.id  +'/tracks',
-				   	headers: {
-		  				'Authorization': 'Bearer ' + token,
-		  		   	},
-				   	success: function(response) {
-				       		console.log(response);
-				       		
-				   	}
-				});
+		   	$.ajax({
+		   	url: 'https://api.spotify.com/v1/me',
+		   	headers: {
+  				'Authorization': 'Bearer ' + token,
+  		   	},
+		   	success: function(response) {
+			       console.log(response);
+			       var user_id = response.id;
+			    
+				//HTTPRequest for getting the tracks of a playlist with playlist ID
+				playlists.forEach(function(playlist){
+					$.ajax({
+					   	url: 'https://api.spotify.com/v1/users/spotify/playlists/'+playlist.id  +'/tracks',
+					   	headers: {
+			  				'Authorization': 'Bearer ' + token,
+			  		   	},
+					   	success: function(response) {
+					       		console.log(response);
+					       		
+					   	}
+					});
 
-			});  
+				});  
 			
-		    }
+		        }
 		});
 }
 
