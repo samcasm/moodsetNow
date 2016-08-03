@@ -208,12 +208,14 @@ function spotifyFunction(response){
 		  		   	},
 				success: function(response) {
 					var playlistTracks = response.items ; 
+					console.log(checkDuplicates);
 				       	playlistTracks.forEach(function(track){
 				       		if(checkDuplicates.length > 0){
 				       			checkDuplicates.forEach(function(itemName){
 				       				if(!itemName == track.track.name){
 				       					tracks.push(track);
 				       					checkDuplicates.push(track.track.name);
+				       				
 				       				}
 				       			});
 				       		}else{
@@ -221,6 +223,7 @@ function spotifyFunction(response){
 				       			checkDuplicates.push(track.track.name);
 				       		}
 			     	    	});
+			     	    	console.log(checkDuplicates);
 				       	
 				 }
 			});
