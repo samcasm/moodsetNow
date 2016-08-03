@@ -215,7 +215,11 @@ function spotifyFunction(response){
 				       		if(checkDuplicates.length > 0){
 				       			console.log(checkDuplicates,"length>0");
 				       			checkDuplicates.forEach(function(itemName){
-				       				console.log(itemName,"checkDup item")
+				       				console.log(itemName,"checkDup item");
+				       				console.log(typeof track.track.name,"typ of track.track.name");
+				       				console.log(track.track.name,'track.track.name');
+				       				console.log(typeof itemName,'typeof itemName');
+				       				console.log(itemName,'itemName');
 				       				if(!itemName == track.track.name){
 				       					tracks.push(track);
 				       					console.log(tracks);
