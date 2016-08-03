@@ -27,7 +27,7 @@ var hash = mycallback();
 console.log(hash);
 
 var tracks = []	;
-var weatherButton = document.querySelector("weather-button");
+var weatherButton = document.querySelector(".weather-button");
 
 weatherButton.addEventListener("click",function(){
 	var inputCity = document.querySelector(".city").value;
