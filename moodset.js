@@ -207,6 +207,7 @@ function spotifyFunction(response){
 		  				'Authorization': 'Bearer ' + token,
 		  		   	},
 				success: function(response) {
+					debugger;
 					var playlistTracks = response.items ; 
 					console.log(checkDuplicates);
 				       	playlistTracks.forEach(function(track){
