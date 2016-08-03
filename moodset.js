@@ -207,21 +207,27 @@ function spotifyFunction(response){
 		  				'Authorization': 'Bearer ' + token,
 		  		   	},
 				success: function(response) {
-					
 					var playlistTracks = response.items ; 
 					console.log(checkDuplicates);
 				       	playlistTracks.forEach(function(track){
+				       		console.log(track);
+				       		console.log(checkDuplicates,"check condition");
 				       		if(checkDuplicates.length > 0){
+				       			console.log(checkDuplicates,"length>0");
 				       			checkDuplicates.forEach(function(itemName){
+				       				console.log(itemName,"checkDup item")
 				       				if(!itemName == track.track.name){
 				       					tracks.push(track);
+				       					console.log(tracks);
 				       					checkDuplicates.push(track.track.name);
-				       				
+				       					console.log(checkDuplicates,"after pushing");
 				       				}
 				       			});
 				       		}else{
 				       			tracks.push(track);
+				       			console.log(tracks);
 				       			checkDuplicates.push(track.track.name);
+				       			console.log(checkDuplicates, "else");
 				       		}
 			     	    	});
 			     	    	console.log(checkDuplicates);
