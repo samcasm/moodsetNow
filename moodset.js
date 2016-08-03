@@ -222,6 +222,3 @@ function spotifyFunction(response){
 		});
 }
 
-function spotifyPlaylistMaker(response){
-	console.log(response);
-}
