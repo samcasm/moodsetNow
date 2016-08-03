@@ -31,6 +31,11 @@ var weatherButton = document.querySelector(".weather-button");
 
 weatherButton.addEventListener("click",function(){
 	var inputCity = document.querySelector(".city").value;
+	if(document.querySelector(".final-playlist-table")){
+		document.querySelector(".final-playlist").innerHTML = " ";
+		document.querySelector(".final-playlist-table").style.visibility = "hidden";
+		document.querySelector(".final-playlist-button").style.visibility = "hidden";
+	}
 
 	///////////////////   GOOGLE MAPS GEOCODER API   ///////////////////////////////
 
@@ -102,6 +107,7 @@ function hoora(response){
 	////////////    	SPOTIFY DEVELOPER API  //////////////////////
 
 	createPlaylistButton.addEventListener("click",function(){
+	document.querySelector(".final-playlist-button").style.visibility = "visible";
 	//firing search request to spotify developer api with the q parameter as playlist
 	var xmlhttp = new XMLHttpRequest();
 	// check the weather and input search parameter q based on that
@@ -215,6 +221,8 @@ finalPlaylistButton.addEventListener("click",makeFinalPlaylist);
 
 //display final mashed up playlist 
 function makeFinalPlaylist(){
+	document.querySelector(".final-playlist").innerHTML = " ";
+	document.querySelector(".final-playlist-table").style.visibility = "visible";
 	
 	tracks.filter(function(track){
 	var duration_ms = track.track.duration_ms;
@@ -235,7 +243,7 @@ function makeFinalPlaylist(){
 		var trackArtistTD = document.createElement("td");
 		var trackDurationTD = document.createElement("td");
 
-		numberTD.innerHTML = i;
+		numberTD.innerHTML = i + 1;
 		tr.appendChild(numberTD);
 
 		playButtonTD.className = "glyphicon glyphicon-play";
