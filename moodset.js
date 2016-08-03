@@ -197,21 +197,22 @@ function spotifyFunction(response){
 					var playlistTracks = response.items ; 
 				       	playlistTracks.forEach(function(track){
 				       		tracks.push(track);
+				       		console.log(tracks);
 				       	});
 				 }
 			});
 			
 		}); 
-		
+		console.log(tracks);
 		tracks.filter(function(track){
 			var duration_ms = track.track.duration_ms;
 			return parseInt(duration_ms)>60000 ; 
 		});
-				       	
+		console.log(tracks);		       	
 		tracks.sort(function(a,b){
 			return b.track.popularity-a.track.popularity ;
 		});
-				       
+		console.log(tracks);	       
 		var newTracks = tracks.slice(0,10);
 		console.log(newTracks);
 				       	
