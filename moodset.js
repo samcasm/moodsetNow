@@ -184,32 +184,20 @@ function spotifyFunction(response){
 		});
 		console.log(playlistIds);
 		
-		//HTTPRequest for getting the current User's Id
-		$.ajax({
-		   url: 'https://api.spotify.com/v1/me',
-		   headers: {
-  			'Authorization': 'Bearer ' + token,
-  		   },
-		   success: function(response) {
-		       console.log(response);
-		       var user_id = response.id;
-		    
-			//HTTPRequest for getting the tracks of a playlist with playlist ID
-			playlists.forEach(function(playlist){
-				$.ajax({
-				   	url: 'https://api.spotify.com/v1/users/spotify/playlists/'+playlist.id  +'/tracks?limit=10',
-				   	headers: {
+		//HTTPRequest for getting the tracks of a playlist with playlist ID
+		playlistIds.forEach(function(playlistID){
+			$.ajax({
+				url: 'https://api.spotify.com/v1/users/spotify/playlists/'+playlistID  +'/tracks',
+				headers: {
 		  				'Authorization': 'Bearer ' + token,
 		  		   	},
-				   	success: function(response) {
-				       		console.log(response);
+				success: function(response) {
+				       	console.log(response);
 				       		
-				   		}
-				});
+				   	}
+			});
 
 
-			});   
-		    }
-		});
-	
+		});   
 }
+
