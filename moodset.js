@@ -198,8 +198,7 @@ function spotifyFunction(response){
 					var playlistTracks = response.items ; 
 				       	playlistTracks.forEach(function(track){
 				       		tracks.push(track);
-				       		console.log(tracks);
-				       	});
+			     	    	});
 				       	
 				 }
 			});
@@ -211,11 +210,11 @@ function spotifyFunction(response){
 	
 					
 var finalPlaylistButton = document.querySelector(".final-playlist-button");
-finalPlaylistButton.addEventListener("click",makeFinalPlaylist(tracks));
+finalPlaylistButton.addEventListener("click",makeFinalPlaylist);
 
 
 //display final mashed up playlist 
-function makeFinalPlaylist(newTracks){
+function makeFinalPlaylist(){
 	
 	tracks.filter(function(track){
 	var duration_ms = track.track.duration_ms;
