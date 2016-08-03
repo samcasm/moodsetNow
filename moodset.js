@@ -204,7 +204,7 @@ function spotifyFunction(response){
 				       	});
 				       	
 				       	tracks.sort(function(a,b){
-				       		return a.track.popularity-b.track.popularity ;
+				       		return b.track.popularity-a.track.popularity ;
 				       	})
 				       	console.log(tracks);
 				       	var newTracks = tracks.slice(0,10);
