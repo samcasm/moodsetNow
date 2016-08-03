@@ -47,6 +47,13 @@ i{
 	outline:none;
 }
 
+.final-playlist-table{
+	visibility:hidden ;
+}
+.final-playlist-button{
+	visibility:hidden;
+}
+
 #create-button{
 	margin: 0 auto;
 	text-align: center;
