@@ -27,9 +27,11 @@ var hash = mycallback();
 console.log(hash);
 
 var tracks = []	;
+var checkDuplicates = [];
 var weatherButton = document.querySelector(".weather-button");
 
 weatherButton.addEventListener("click",function(){
+	checkDuplicates = [];
 	var inputCity = document.querySelector(".city").value;
 	if(document.querySelector(".final-playlist-table")){
 		document.querySelector(".final-playlist").innerHTML = " ";
@@ -207,7 +209,17 @@ function spotifyFunction(response){
 				success: function(response) {
 					var playlistTracks = response.items ; 
 				       	playlistTracks.forEach(function(track){
-				       		tracks.push(track);
+				       		if(checkDuplicates.length > 0){
+				       			checkDuplicates.forEach(function(itemName){
+				       				if(!itemName == track.track.name){
+				       					tracks.push(track);
+				       					checkDuplicates.push(track.track.name);
+				       				}
+				       			});
+				       		}else{
+				       			tracks.push(track);
+				       			checkDuplicates.push(track.track.name);
+				       		}
 			     	    	});
 				       	
 				 }
