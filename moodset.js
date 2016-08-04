@@ -89,9 +89,40 @@ weatherButton.addEventListener("click",function(){
 
 function hoora(response){
 	console.log(response);
+	globals['iconCurrent'] = response.currently.icon;
+	
+	//load background
+	var newbg = "";
+	if(globals['iconCurrent'] == "clear-day"){
+		newbg = "https://www.flickr.com/photos/stephenwalford/8116884592/in/photolist-dnga15-6iFZNo-5vS1oE-iFYC57-5vBQVj-6e8vyD-62yhYD-6pr5vr-8ZckvT-8ZSFM7-6uMh3b-5MQNSh-6MKABz-ciAL5Y-8KkDRD-cBtWfG-cyTdo3-5uCWBd-53Zfi7-aH84NH-efP5TF-AEXwtL-6ursJF-d1w3du-9gSS9d-9hVfkk-ckHDx9-6hCX7L-7QKD4v-7z7unp-7DP1Cz-5qU2Cy-7tPmwj-8TP8Nu-8KJShh-64Py2T-9a6yEt-8WPRv6-78XRdW-8X3zhD-8sD9WY-77xNKC-93J74w-9KyaV4-BkrRUS-a5VWwv-77EM5o-8UwoNY-9186pn-9A42oG";
+	}else if(globals['iconCurrent'] == "clear-night"){
+		newbg = "https://www.flickr.com/photos/mattpugs/14570392200/in/photolist-ocx4YC-kMzKac-7jBzeZ-oms8W8-iMfrqt-qHxqWh-od61is-drXnEz-5oSppt-rgk9MG-oVsSaJ-qAQ23g-ecfxaT-ocedPE-arMxdX-8ExNoW-mVfKGi-5K2FX7-fCcQnD-8huRdn-cy4C3w-6shvbW-bQduaa-dr5tQo-oZakkV-opfN2H-nZ7xLm-ePWczV-owqa8X-oRBa4u-p4UqA4-35vKa8-aC4H3J-b6Svsi-aAz13n-nRo7NJ-rsjqKw-8huRbn-iPc5qD-h4uF4V-jkekZ8-qtKxeS-oeb6X2-cgcHH7-9vhuia-4vwP6g-br3SaM-9vAfCU-eiFdbe-cQV3pE";
+	}else if(globals['iconCurrent'] == "partly-cloudy-day"){
+		newbg = "https://www.flickr.com/photos/joannarb2009/15350065986/in/photolist-por6Q7-aypJFo-eShcAe-9RiH3Q-9AoLso-ar98hp-fuUTYu-p22eXG-pD5Vbo-pFRjU4-eerC8R-ccpXBG-jrRA44-nAvHnW-g8Jiw1-535S17-8LQLLU-gJhXSc-qb8Hf8-gJi5Y7-53NP8K-ai2VFk-dFMmqc-gJhYzA-GR3gyG-fTKL2j-sghZzt-rdi9i6-bMXzcH-nGZNft-egtqY2-nYQXrx-8HQfmM-aRPc3e-6vq8GJ-raFeXF-qoRdwZ-nRrFgL-rA4FZf-nGEL2k-kkXwYH-qMTKTe-dRtGrL-bjhY2t-9cY7FT-oUCvp5-8pDkG8-omT6Ty-rpLbBF-5TBgY9";
+	}else if (globals['iconCurrent'] == "partly-cloudy-night"){
+		newbg = "https://www.flickr.com/photos/77437968@N00/14276673077/in/photolist-nKzFvP-8msKZW-cjmsV3-eShSQ8-nvR3sJ-9ToHYy-ozGCQf-d3TwXC-oHnuhR-9c3k6T-9y44jY-fQc3X5-3KCZ99-e6KRM8-pmu6Cp-rkSvVN-8pEpmE-9VGSHK-9WbjXF-ryXmqP-oxQrt9-25jZuZ-an2mPV-9c6pNQ-84aTLe-5bb92D-8V9TVE-4EFPST-eJYE3D-5BmYgE-c5wKqs-5uGXDu-9T93Mj-a4Yf43-faFUoc-4Zarqt-fhLs3n-wKEp4Q-aoFoJK-a4Yf9J-bXfsdg-9VGSKB-Srhgj-SrhpJ-nLjH49-fsmqcF-6JxRQN-7BcNpP-dTctsL-o4eoXV";
+	}else if(globals['iconCurrent'] == "cloudy"){
+		newbg = "https://www.flickr.com/photos/podkozo/15557773890/in/photolist-pGME9S-8PHr3a-q9v1nu-pQHt1g-D2P7Vt-q8dCRE-G6WUky-pQK4Ny-oCcF6n-pQG357-k5nLYc-por6Q7-aypJFo-eShcAe-9RiH3Q-9AoLso-ar98hp-fuUTYu-p22eXG-pD5Vbo-pFRjU4-eerC8R-ccpXBG-jrRA44-nAvHnW-g8Jiw1-535S17-8LQLLU-gJhXSc-qb8Hf8-gJi5Y7-53NP8K-ai2VFk-dFMmqc-gJhYzA-GR3gyG-fTKL2j-sghZzt-rdi9i6-bMXzcH-nGZNft-egtqY2-nYQXrx-8HQfmM-aRPc3e-6vq8GJ-raFeXF-qoRdwZ-nRrFgL-rA4FZf";
+	}else if(globals['iconCurrent']=="rain"){
+		newbg = "https://www.flickr.com/photos/www-gohip-de/6807992923/in/photolist-bnAK7k-97dnGM-9mgZWs-btpnwY-aDY9xv-drLCzS-9tTc2W-qrZh8k-9e9Y54-93eigw-9xYWdG-8UsnLe-bDPBM6-bsNGQG-cDgPj5-Dii38X-yqcwA3-mkaf9z-pYbYNu-aPvCPX-C1gYGv-9erpHv-aHRMCv-9MDMpf-pTTr9R-dVaMGY-dFeAE9-oSCQyd-atj6vs-ee9ts1-aCzCHW-auSLs3-e53HgT-9eKJAg-aDbXyL-dTZip2-egsE52-mZ8HxB-qhBNgp-92sVna-ftZhDB-mF7iXc-kF9jT4-99xW8B-rHcePz-r3Dxt9-kq2p5o-9nRfyX-pmPr3o-eTR6kE";
+	}else if(globals['iconCurrent'] == "sleet"){
+		newbg = "chill"
+	}else if(globals['iconCurrent'] == "snow"){
+		newbg = "https://www.flickr.com/photos/moaan/6720390995/in/photolist-oTk3QN-beRL7g-bgBcCP-4V6LN5-dAWd6j-bfnUXa-dSzea5-p9YSNc-qCchT2-q2HKsd-hkrEUB-qPYw2q-qnC9h5-dAcvXQ-bNNLdX-98niUm-pqXMdS-icCZQE-qDVer3-4kmPqQ-iymRbF-93S8Ze-qWCKDN-61JSkA-e3emVx-bJ2K14-4CSCuF-bHVVzZ-prce5p-iNXifJ-ErqQsn-pE4hVt-aQMvXK-idJKip-98oBzg-bqSAcz-8d6d4k-7vjCkE-98rGVG-98oEHM-CDak-8YADLd-ebsnRd-inmKtp-e7ekUP-vmM3G-9gp2Fg-mztznz-bJ2JuB-bJ2Jf8";
+	}else if(globals['iconCurrent'] == "wind"){
+		newbg = "https://www.flickr.com/photos/excitingart/7389252410/in/photolist-cfXRiC-fDxKZL-9396UH-nJ8YQY-ejhq8C-9KMnsT-d5r9Tb-d5rabm-8vfx6x-o4uffD-9TMBV4-ahe5pF-7ngBqS-sESEto-f3fnC8-ae9Bue-pcZATD-hs4isa-5Ej5B7-4NY2JK-cRrVQS-q5EKHM-pM7xEm-riG4YA-nm74Dx-iPqap-p94T2n-a2Vki7-jy8h3B-nuhoht-rpbJvY-8FAikb-qHeG2Y-2ZHqfi-6wDcMj-eHm3L5-etXGLK-ck2vZj-9tvhEd-4tjBpu-oKjL7U-9Nozhs-JzWAXf-djcqBp-qbYFsd-4c92Wq-a94Vqg-qTjM8e-48rZYt-pXmJqE";
+	}else if(globals['iconCurrent'] == "fog"){
+		newbg = "https://www.flickr.com/photos/miliepirate/16715514726/in/photolist-rt6oaL-6h9H88-8jNkAZ-rBBXaR-L2BMm-7GVkgA-opjdUV-nrmyh6-7GRpUV-oaqkKp-oxVwK1-7GVmtj-dGexJ6-pNWjUN-bkj8fE-7GVm3N-okuNNe-c2atas-8ecQG8-2aePtt-iPu8DE-6B6a52-8FXmeV-azZhnF-rt6nKh-Ed3cTW-cYEnao-4ucgEf-ovrNgs-q2Wod4-ga4pc5-cXReyU-4CCP6m-t1DX13-pBCu6f-q3nJoe-vRNEzS-qbjgE8-nuXnmp-qhKcVm-eXFM3P-cs7pFC-qCuzVe-JEvPgX-voYA6n-cBcbK7-jZdq1u-eiKwL6-nBUsTZ-p6kSqW";
+	}
+	
+	var body = document.querySelector("body");
+	body.style.backgroundImage = "url(" + newbg + ")";
+	body.style.backgroundAttachment = "fixed";
+	body.style.backgroundRepeat = "no-repeat";
+	body.style.backgroundSize = "cover";
+	
 	//load icon
 	var skycons = new Skycons({"color": "#5bc0de"});
-	globals['iconCurrent'] = response.currently.icon;
 	skycons.add(document.getElementById("icon1"), globals['iconCurrent']);
 	skycons.play();
 
