@@ -19,7 +19,7 @@ li{
 i{
 	display: inline-block;
 }
-.table{
+.table.table-striped{
 	border:none;
 }
 
