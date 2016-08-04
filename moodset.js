@@ -338,9 +338,9 @@ function makeFinalPlaylist(){
 
 function makeIframePlayer(newTracks){
 	var iframe = document.querySelector("iframe");
-	var iframeSrc="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:" + trackObj[0].track.id;
+	var iframeSrc="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:" + newTracks[0].track.id;
 	for(var i=1;newTracks.length;i++){
-		iframeSrc += "," + trackObj[i].track.id;	
+		iframeSrc += "," + newTracks[i].track.id;	
 	};
 	iframe.src = iframeSrc;
 	console.log(iframe.src)
