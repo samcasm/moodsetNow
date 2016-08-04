@@ -188,6 +188,7 @@ function spotifyFunction(response){
 
 		var newtd3 = document.createElement("td");
 		newtd3.innerHTML = playlistTitle;
+		newtd3.className = "show-playlist-td";
 		tr.appendChild(newtd3);
 
 		showPlaylists.appendChild(tr);
