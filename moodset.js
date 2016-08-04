@@ -42,13 +42,13 @@ weatherButton.addEventListener("click",function(){
 		document.querySelector(".final-playlist-button").style.visibility = "hidden";
 	}
 	
-	if(document.querySelector(".hr-after-body-weather")){
-		var newHr = document.querySelector(".hr-after-body-weather");
-		if (newHr.parentNode) {
-  			newHr.parentNode.removeChild(newHr) ;
-  			console.log("hr removed");
-		}
-	}
+	// if(document.querySelector(".hr-after-body-weather")){
+	// 	var newHr = document.querySelector(".hr-after-body-weather");
+	// 	if (newHr.parentNode) {
+ // 			newHr.parentNode.removeChild(newHr) ;
+ // 			console.log("hr removed");
+	// 	}
+	// }
 	
 	//take city input
 	var inputCity = document.querySelector(".city").value;
