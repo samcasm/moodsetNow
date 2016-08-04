@@ -9,23 +9,28 @@
 </head>
 <body>
 	<div class="content">
-		<div class="header">
-            <h1>MOODSET</h1>
-            <h3>Where you at ? </h3>
-            <input class="city" type="text"  placeholder="city">
-            <button class="btn btn-info weather-button">Check weather</button>
-        </div>
-        <hr>
-        <div class="body-weather">
-        	<div class="weather-icon">
-        		<canvas id="icon1" width="128" height="128"></canvas>
-        		<ul>
-        			<li class="first-li" ><p class="icon-temperature"></p></li>
-        			<li><p class="icon-summary"></p></li>
-        		</ul>
+		<div class="div-bg">
+			<div class="header">
+            			<h1>MOODSET</h1>
+        			<h3>Where you at ? </h3>
+            			<input class="city" type="text"  placeholder="city">
+            			<button class="btn btn-info weather-button">Check weather</button>
+        		</div>
+        		<hr>
+        		<div class="body-weather">
+        			<div class="weather-icon">
+        				<canvas id="icon1" width="128" height="128"></canvas>
+        				<ul>
+        					<li class="first-li" ><p class="icon-temperature"></p></li>
+        					<li><p class="icon-summary"></p></li>
+        				</ul>
 				<button id="create-button" class=" btn btn-success">Show playlists</button>        	
+				</div>
 			</div>
+        		
 		</div>
+	
+        
 		<div>
 			<table id = "table-show-playlist" class="table table-striped table-bordered">
 				<thead>
