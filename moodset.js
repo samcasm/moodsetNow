@@ -339,7 +339,7 @@ function makeIframePlayer(newTracks){
 	var iframe = document.querySelector("iframe");
 	var iframeSrc="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:";
 	var newarr = new Array();
-	for(var i=0;newTracks.length;i++){
+	for(var i=0; i<newTracks.length; i++){
 		newarr.push(newTracks[i].track.id);
 	}
 	iframeSrc += newarr.join();
