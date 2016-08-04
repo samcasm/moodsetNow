@@ -341,7 +341,7 @@ function makeIframePlayer(newTracks){
 	console.log(iframeSrc);
 	for(var i=1;newTracks.length;i++){
 		console.log(newTracks);
-		console.log(newTracks[1].track.id);
+		console.log(newTracks[i].track.id);
 		iframeSrc += "," + newTracks[i].track.id;	
 	}
 	iframe.src = iframeSrc;
