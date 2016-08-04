@@ -25,20 +25,24 @@ function mycallback(){
 //calling the above hash function when page loads
 var hash = mycallback();
 console.log(hash);
+globals= {};
 
 var tracks = []	;
-var checkDuplicates = [];
 var weatherButton = document.querySelector(".weather-button");
 
 weatherButton.addEventListener("click",function(){
-	checkDuplicates = [];
-	var inputCity = document.querySelector(".city").value;
-	if(document.querySelector(".final-playlist-table")){
-		document.querySelector(".final-playlist").innerHTML = " ";
+	//clear preiously executed queries
+	document.querySelector(".show-playlists").innerHTML = " ";
+	if((document.querySelector("#table-show-playlist").style.visibility="visible")){
+		document.querySelector("#table-show-playlist").style.visibility = "hidden";
+	}
+	document.querySelector(".final-playlist").innerHTML = " ";
+	if(document.querySelector(".final-playlist-table").style.visibility="visible"){
 		document.querySelector(".final-playlist-table").style.visibility = "hidden";
 		document.querySelector(".final-playlist-button").style.visibility = "hidden";
 	}
-
+	//take city input
+	var inputCity = document.querySelector(".city").value;
 	///////////////////   GOOGLE MAPS GEOCODER API   ///////////////////////////////
 
 	//firing HTTPS request to Google Maps Geocoding Api to retrive the co-ordinates of address being input
@@ -57,12 +61,6 @@ weatherButton.addEventListener("click",function(){
 
 	
 	function myFunction(response){
-		//clear preiously executed queries
-		document.querySelector(".show-playlists").innerHTML = " ";
-		if(document.querySelector("#table-show-playlist")){
-			document.querySelector("#table-show-playlist").style.visibility = "hidden";
-		}
-		
 		//if request successfull extract longitude and latitude of location
 		console.log(response);
 		var lat = response.results[0].geometry.location.lat;
@@ -83,8 +81,8 @@ function hoora(response){
 	console.log(response);
 	//load icon
 	var skycons = new Skycons({"color": "#5bc0de"});
-	var iconCurrent = response.currently.icon;
-	skycons.add(document.getElementById("icon1"), iconCurrent);
+	globals['iconCurrent'] = response.currently.icon;
+	skycons.add(document.getElementById("icon1"), globals['iconCurrent']);
 	skycons.play();
 
 	//load icon temperature
@@ -100,39 +98,40 @@ function hoora(response){
 	var iconSumm = document.querySelector(".icon-summary");
 	iconSumm.innerHTML = " \" " +summary+ " \" ";
 
-	var createPlaylistButton = document.querySelector("#create-button");
-	createPlaylistButton.style.visibility = "visible";
+	
+	document.querySelector("#create-button").style.visibility = "visible";
 	var hr = document.createElement("hr");
-	document.querySelector(".content").appendChild(hr);
+	document.querySelector(".body-weather").appendChild(hr);
 
+}
 
 	////////////    	SPOTIFY DEVELOPER API  //////////////////////
-
-	createPlaylistButton.addEventListener("click",function(){
+var createPlaylistButton = document.querySelector('#create-button');
+createPlaylistButton.addEventListener("click",function(){
 	document.querySelector(".final-playlist-button").style.visibility = "visible";
 	//firing search request to spotify developer api with the q parameter as playlist
 	var xmlhttp = new XMLHttpRequest();
 	// check the weather and input search parameter q based on that
 	var query = "";
-	if(iconCurrent == "clear-day"){
+	if(globals['iconCurrent'] == "clear-day"){
 		query = "summer";
-	}else if(iconCurrent == "clear-night"){
+	}else if(globals['iconCurrent'] == "clear-night"){
 		query = "dance";
-	}else if(iconCurrent == "partly-cloudy-day"){
+	}else if(globals['iconCurrent'] == "partly-cloudy-day"){
 		query = "autumn";
-	}else if (iconCurrent == "partly-cloudy-night"){
+	}else if (globals['iconCurrent'] == "partly-cloudy-night"){
 		query = "edm";
-	}else if(iconCurrent == "cloudy"){
+	}else if(globals['iconCurrent'] == "cloudy"){
 		query = "mellow";
-	}else if(iconCurrent=="rain"){
+	}else if(globals['iconCurrent']=="rain"){
 		query = "rainy+day";
-	}else if(iconCurrent == "sleet"){
+	}else if(globals['iconCurrent'] == "sleet"){
 		query = "chill"
-	}else if(iconCurrent == "snow"){
+	}else if(globals['iconCurrent'] == "snow"){
 		query = "happy";
-	}else if(iconCurrent == "wind"){
+	}else if(globals['iconCurrent'] == "wind"){
 		query = "acoustic+afternoon";
-	}else if(iconCurrent == "fog"){
+	}else if(globals['iconCurrent'] == "fog"){
 		query = "relax";
 	}
 
@@ -150,13 +149,14 @@ function hoora(response){
 	xmlhttp.send();
 });
 
-}
+
+
 
 function spotifyFunction(response){
 	console.log(response);
 	var playlists = response.playlists.items;
-	var showPlaylists = document.querySelector(".show-playlists");
-	showPlaylists.innerHTML = " ";
+	// var showPlaylists = document.querySelector(".show-playlists");
+	// showPlaylists.innerHTML = " ";
 	
 	playlists.forEach(function(playlist){
 		var tr = document.createElement("tr");
@@ -164,7 +164,7 @@ function spotifyFunction(response){
 		var imgSrc = playlist.images[0].url;
 		newImg.src = imgSrc;
 		newImg.style.height = "100px";
-		newImg.style.height = "100px";
+		newImg.style.width = "100px";
 		var playlistTitle = playlist.name;
 		
 		
@@ -194,6 +194,7 @@ function spotifyFunction(response){
 		console.log(playlistUrls);
 		
 		if(tracks.length>0){
+		console.log(tracks,"emptying");
 		tracks = [];
 		tracks.length = 0;
 		}
@@ -210,8 +211,9 @@ function spotifyFunction(response){
 					var playlistTracks = response.items ; 
 					playlistTracks.forEach(function(track){
 						tracks.push(track);
+					
 					});
-				      	
+				      console.log(tracks,"filling up with 40 tracks")	
 				 }
 			});
 			
@@ -227,28 +229,32 @@ finalPlaylistButton.addEventListener("click",makeFinalPlaylist);
 
 //display final mashed up playlist 
 function makeFinalPlaylist(){
-	document.querySelector(".final-playlist").innerHTML = " ";
-	document.querySelector(".final-playlist-table").style.visibility = "visible";
 	
-	tracks.filter(function(track){
+	//filter tracks for promos and ads that are 60secs or less duration
+	tracks = tracks.filter(function(track){
 	var duration_ms = track.track.duration_ms;
 		return parseInt(duration_ms)>60000 ; 
 	});
 	
+	//sort all tracks based on popularity
 	tracks.sort(function(a,b){
 		return b.track.popularity-a.track.popularity;	
 	});
 	
+	//search adjacent tracks and delete all duplicates replacing them with "undefined"
 	for( var i=0; i<tracks.length-1; i++ ) {
   		if ( tracks[i].track.name == tracks[i+1].track.name ) {
     		delete tracks[i];
   		}
 	}
+	//filter out all tracks that aren't undefined
 	tracks = tracks.filter( function( el ){ return (typeof el !== "undefined"); } );
 
 	var newTracks = tracks.slice(0,10);
-	console.log(newTracks);
-
+	console.log(tracks,"all filtered tracks")
+	console.log(newTracks,"the chosen 10");
+	
+	//create final playlist elements, fill in their data and append them to the body
 	for(i=0;i<newTracks.length;i++){
 		var tr = document.createElement("tr");
 		var numberTD = document.createElement("td");
@@ -276,6 +282,8 @@ function makeFinalPlaylist(){
 
 		var finalPlaylist = document.querySelector(".final-playlist");
 		finalPlaylist.appendChild(tr);
+		
+		document.querySelector(".final-playlist-table").style.visibility = "visible";
 
 	}
 
