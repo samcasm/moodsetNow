@@ -336,7 +336,7 @@ function makeFinalPlaylist(){
 }
 
 function makeIframePlayer(newTracks){
-	var iframe = document.querySelector(".the-playlist");
+
 	var iframeSrc="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:";
 	var newarr = new Array();
 	for(var i=0; i<newTracks.length; i++){
@@ -344,12 +344,12 @@ function makeIframePlayer(newTracks){
 	}
 
 	iframeSrc += newarr.join();
-	iframe.src = iframeSrc;
+	
 	
 	var playMusicButton = document.querySelector(".play-music-button");
 	playMusicButton.style.visibility = "visible";
 	playMusicButton.addEventListener("click",function(){
-		window.location.href = "https://samcasm.github.io/moodsetNow/playlist.html";
+		window.location.href = iframeSRC;
 	});
 	
 
