@@ -66,6 +66,10 @@ i{
 	right:0;
 }
 
+.final-playlist-table tbody tr td, .final-playlist-table tbody tr th, .final-playlist-table thead tr th {
+    border: none;
+}
+
 #create-button{
 	margin: 0 auto;
 	text-align: center;
@@ -75,4 +79,7 @@ i{
 
 #table-show-playlist{
 	visibility: hidden;
+	margin-top:-19px;
 }
+
+
