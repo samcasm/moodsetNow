@@ -341,10 +341,9 @@ function makeIframePlayer(newTracks){
 	var iframeSrc="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:" + newTracks[0].track.id;
 	for(var i=1;newTracks.length;i++){
 		iframeSrc += "," + newTracks[i].track.id;	
-	};
+	}
 	iframe.src = iframeSrc;
-	console.log(iframe.src)
-
+	console.log(iframe.src);
 }
 
 function secondsToTime(secs){
