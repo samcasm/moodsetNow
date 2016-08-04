@@ -342,11 +342,17 @@ function makeIframePlayer(newTracks){
 	for(var i=0; i<newTracks.length; i++){
 		newarr.push(newTracks[i].track.id);
 	}
-	console.log(newarr);
+
 	iframeSrc += newarr.join();
 	iframe.src = iframeSrc;
-	console.log(iframe.src);
-	iframe.style.visibility = "visible";
+	
+	var playMusicButton = document.querySelector(".play-music-button");
+	playMusicButton.style.visibility = "visible";
+	playMusicButton.addEventListener("click",function(){
+		window.location.href = playlist.html;
+	})
+	
+
 }
 
 function secondsToTime(secs){
