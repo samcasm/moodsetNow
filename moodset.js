@@ -197,7 +197,7 @@ function spotifyFunction(response){
 		tracks = [];
 		tracks.length = 0;
 		}
-	
+		console.log(tracks,"empty");
 	    
 		//HTTPRequest for getting the tracks of a playlist with playlist ID
 		playlistUrls.forEach(function(playlistURL){
