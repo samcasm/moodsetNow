@@ -47,6 +47,7 @@ weatherButton.addEventListener("click",function(){
 		if (newHr.parentNode) {
   			newHr.parentNode.removeChild(newHr) ;
   			console.log("hr removed");
+  			console.log("seems like i gta make a substantial change");
 		}
 	}
 	
