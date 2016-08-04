@@ -327,12 +327,11 @@ function makeFinalPlaylist(){
 
 		var finalPlaylist = document.querySelector(".final-playlist");
 		finalPlaylist.appendChild(tr);
-		
-		document.querySelector(".final-playlist-table").style.visibility = "visible";
-		
-		makeIframePlayer(newTracks);
-
 	}
+	
+	document.querySelector(".final-playlist-table").style.visibility = "visible";
+		
+	makeIframePlayer(newTracks);
 
 }
 
