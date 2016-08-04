@@ -59,6 +59,7 @@ weatherButton.addEventListener("click",function(){
 	function myFunction(response){
 		//clear preiously executed queries
 		document.querySelector(".show-playlists").innerHTML = " ";
+		
 		if(document.querySelector("#table-show-playlist")){
 			document.querySelector("#table-show-playlist").style.visibility = "hidden";
 		}
@@ -155,8 +156,7 @@ function hoora(response){
 function spotifyFunction(response){
 	console.log(response);
 	var playlists = response.playlists.items;
-	var showPlaylists = document.querySelector(".show-playlists");
-	showPlaylists.innerHTML = " ";
+	
 	
 	playlists.forEach(function(playlist){
 		var tr = document.createElement("tr");
