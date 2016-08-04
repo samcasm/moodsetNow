@@ -241,7 +241,7 @@ function makeFinalPlaylist(){
 	console.log(tracks);
 	
 	for( var i=0; i<tracks.length-1; i++ ) {
-  		if ( tracks[i].track.name == arr[i+1].track.name ) {
+  		if ( tracks[i].track.name == tracks[i+1].track.name ) {
     		delete arr[i];
   		}
 	}
