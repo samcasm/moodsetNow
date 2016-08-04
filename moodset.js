@@ -246,16 +246,6 @@ function makeFinalPlaylist(){
 	}
 	tracks = tracks.filter( function( el ){ return (typeof el !== "undefined"); } );
 
-	tracks.sort(function(a,b){
-		return b.track.popularity-a.track.popularity ;
-	});
-	for( var i=0; i<tracks.length-1; i++ ) {
-  		if ( tracks[i].track.name == tracks[i+1].track.name ) {
-    		delete arr[i];
-  		}
-	}
-	tracks = tracks.filter( function( el ){ return (typeof el !== "undefined"); } );
-					
 	var newTracks = tracks.slice(0,10);
 	console.log(newTracks);
 
