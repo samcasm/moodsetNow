@@ -1,7 +1,3 @@
-iframe{
-	
-	margin: 0 auto;
-}
 
 h3{
 	display: inline;
@@ -25,10 +21,7 @@ i{
 	display: inline-block;
 }
 
-.play-music-button{
 
-	visibility:hidden;
-}
 
 .table.table-striped{
 	border:none;
