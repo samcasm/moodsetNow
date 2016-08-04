@@ -5,8 +5,6 @@ h3{
 table,th,td{
 	text-align: center;
 	margin: 0 auto;
-	border:none;
-	
 }
 
 ul{
@@ -20,6 +18,9 @@ li{
 }
 i{
 	display: inline-block;
+}
+.table{
+	border:none;
 }
 
 .header{
