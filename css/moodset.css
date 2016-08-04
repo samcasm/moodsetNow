@@ -19,6 +19,11 @@ li{
 i{
 	display: inline-block;
 }
+.show-playlist-td{
+	line-height:7;
+	font-weight:900;
+}
+
 .table.table-striped{
 	border:none;
 }
