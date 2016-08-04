@@ -249,9 +249,10 @@ function makeFinalPlaylist(){
 	
 	tracks = tracks.filter( function( el ){ return (typeof el !== "undefined"); } );
 	console.log(tracks);
-	// tracks.sort(function(a,b){
-	// 	return b.track.popularity-a.track.popularity ;
-	// });
+	
+	tracks.sort(function(a,b){
+		return b.track.popularity-a.track.popularity ;
+	});
 					
 	var newTracks = tracks.slice(0,10);
 	console.log(newTracks);
