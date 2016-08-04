@@ -345,10 +345,7 @@ function makeIframePlayer(newTracks){
 
 	iframeSrc += newarr.join();
 	
-	var playButton = document.createElement("button");
-	playButton.className = "play-button btn btn-warning";
-	playButton.style.display = "block";
-	document.querySelector("body").appendChild(playButton);
+
 	
 
 	
