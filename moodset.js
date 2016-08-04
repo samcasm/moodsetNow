@@ -337,13 +337,12 @@ function makeFinalPlaylist(){
 
 function makeIframePlayer(newTracks){
 	var iframe = document.querySelector("iframe");
-	var iframeSrc="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:" + newTracks[0].track.id;
-	console.log(iframeSrc);
-	for(var i=1;newTracks.length;i++){
-		console.log(newTracks);
-		console.log(newTracks[i].track.id);
-		iframeSrc += "," + newTracks[i].track.id;	
+	var iframeSrc="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:";
+	var newarr = new Array();
+	for(var i=0;newTracks.length;i++){
+		newarr.push(newTracks[i].track.id);
 	}
+	iframeSrc += newarr.join();
 	iframe.src = iframeSrc;
 	console.log(iframe.src);
 }
