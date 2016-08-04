@@ -45,7 +45,7 @@ weatherButton.addEventListener("click",function(){
 	if(document.querySelector(".hr-after-body-weather")){
 		var newHr = document.querySelector(".hr-after-body-weather");
 		if (newHr.parentNode) {
-  			newHr.parentNode.removeChild(newHr);
+  			newHr.parentNode.removeChild(newHr) ;
   			console.log("hr removed");
 		}
 	}
