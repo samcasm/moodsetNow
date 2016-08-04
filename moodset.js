@@ -349,8 +349,8 @@ function makeIframePlayer(newTracks){
 	var playMusicButton = document.querySelector(".play-music-button");
 	playMusicButton.style.visibility = "visible";
 	playMusicButton.addEventListener("click",function(){
-		window.location.href = playlist.html;
-	})
+		window.location.href = "https://samcasm.github.io/moodsetNow/playlist.html";
+	});
 	
 
 }
