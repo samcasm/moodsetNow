@@ -241,7 +241,7 @@ function makeFinalPlaylist(){
 	
 	for( var i=0; i<tracks.length-1; i++ ) {
   		if ( tracks[i].track.name == tracks[i+1].track.name ) {
-    		delete arr[i];
+    		delete tracks[i];
   		}
 	}
 	tracks = tracks.filter( function( el ){ return (typeof el !== "undefined"); } );
