@@ -108,7 +108,6 @@ function hoora(response){
 	////////////    	SPOTIFY DEVELOPER API  //////////////////////
 var createPlaylistButton = document.querySelector('#create-button');
 createPlaylistButton.addEventListener("click",function(){
-	document.querySelector(".final-playlist-button").style.visibility = "visible";
 	//firing search request to spotify developer api with the q parameter as playlist
 	var xmlhttp = new XMLHttpRequest();
 	// check the weather and input search parameter q based on that
@@ -155,7 +154,7 @@ createPlaylistButton.addEventListener("click",function(){
 function spotifyFunction(response){
 	console.log(response);
 	var playlists = response.playlists.items;
-	// var showPlaylists = document.querySelector(".show-playlists");
+	var showPlaylists = document.querySelector(".show-playlists");
 	// showPlaylists.innerHTML = " ";
 	
 	playlists.forEach(function(playlist){
@@ -185,6 +184,8 @@ function spotifyFunction(response){
 	});
 	//displays the playlists
 	document.querySelector("#table-show-playlist").style.visibility="visible";
+	document.querySelector(".final-playlist-button").style.visibility = "visible";
+
 
 	//collect playlist ids an array
 		var playlistUrls = new Array();
