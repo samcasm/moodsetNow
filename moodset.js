@@ -336,7 +336,7 @@ function makeFinalPlaylist(){
 }
 
 function makeIframePlayer(newTracks){
-	var iframe = document.querySelector("iframe");
+	var iframe = document.querySelector(".the-playlist");
 	var iframeSrc="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:";
 	var newarr = new Array();
 	for(var i=0; i<newTracks.length; i++){
