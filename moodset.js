@@ -347,6 +347,7 @@ function makeIframePlayer(newTracks){
 	
 	var tableBody = document.querySelector(".final-playlist");
 	tableBody.addEventListener("click",function(iframeSrc){
+		console.log(iframeSrc);
 		window.location.href = iframeSrc;
 	});
 	
