@@ -156,7 +156,7 @@ function hoora(response){
 function spotifyFunction(response){
 	console.log(response);
 	var playlists = response.playlists.items;
-	
+	var showPlaylists = document.querySelector(".show-playlists");
 	
 	playlists.forEach(function(playlist){
 		var tr = document.createElement("tr");
