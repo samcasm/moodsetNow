@@ -187,7 +187,7 @@ function spotifyFunction(response){
 		tr.appendChild(newtd2);
 
 		var newtd3 = document.createElement("td");
-		newtd3.innerHTML = playlistTitle;
+		newtd3.innerHTML = playlistTitle.toUpperCase();
 		newtd3.style.fontWeight = "800";
 		newtd3.style.lineHeight = "7";
 		tr.appendChild(newtd3);
