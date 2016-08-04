@@ -5,6 +5,7 @@ h3{
 table,th,td{
 	text-align: center;
 	margin: 0 auto;
+	border:none;
 	
 }
 
@@ -52,6 +53,14 @@ i{
 }
 .final-playlist-button{
 	visibility:hidden;
+	display:block;
+	margin:0 auto;
+}
+
+.final-playlist-div{
+	position:absolute;
+	left:0;
+	right:0;
 }
 
 #create-button{
