@@ -21,6 +21,18 @@ i{
 	display: inline-block;
 }
 
+.index-body{
+	width:750px;
+	height:227px;
+	margin:auto;
+	position: absolute;
+	 top:0;
+    	bottom: 0;
+	 left: 0;
+    	right: 0;
+    	background-color:#eff0f1;
+}
+
 
 
 .table.table-striped{
@@ -71,6 +83,13 @@ i{
 
 .final-playlist-table tbody tr td, .final-playlist-table tbody tr th, .final-playlist-table thead tr th {
     border: none;
+}
+
+#button1{
+	display:block;
+	margin:0 auto;
+	border-radius:30px;
+	width:35%;
 }
 
 #create-button{
