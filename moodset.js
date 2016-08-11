@@ -31,25 +31,6 @@ var tracks = []	;
 var weatherButton = document.querySelector(".weather-button");
 
 weatherButton.addEventListener("click",function(){
-	//clear preiously executed queries
-	document.querySelector(".show-playlists").innerHTML = " ";
-	if((document.querySelector("#table-show-playlist").style.visibility="visible")){
-		document.querySelector("#table-show-playlist").style.visibility = "hidden";
-	}
-	document.querySelector(".final-playlist").innerHTML = " ";
-	if(document.querySelector(".final-playlist-table").style.visibility="visible"){
-		document.querySelector(".final-playlist-table").style.visibility = "hidden";
-		document.querySelector(".final-playlist-button").style.visibility = "hidden";
-	}
-	
-	if(document.querySelector(".hr-after-body-weather")){
-		var newHr = document.querySelector(".hr-after-body-weather");
-		if (newHr.parentNode) {
-  			newHr.parentNode.removeChild(newHr) ;
-  			
-		}
-	}
-	
 	if(document.querySelector('.icon-temperature')===""){
 		//spinner.js
 		var opts = {
@@ -74,9 +55,32 @@ weatherButton.addEventListener("click",function(){
 			, hwaccel: false // Whether to use hardware acceleration
 			, position: 'absolute' // Element positioning
 		}
+		console.log("i am in the spinner");
 		var target = document.querySelector('.spinner-div-1');
 		var spinner = new Spinner(opts).spin(target);
+		console.log("Just got done with the spinner");
 	}
+	
+	
+	//clear preiously executed queries
+	document.querySelector(".show-playlists").innerHTML = " ";
+	if((document.querySelector("#table-show-playlist").style.visibility="visible")){
+		document.querySelector("#table-show-playlist").style.visibility = "hidden";
+	}
+	document.querySelector(".final-playlist").innerHTML = " ";
+	if(document.querySelector(".final-playlist-table").style.visibility="visible"){
+		document.querySelector(".final-playlist-table").style.visibility = "hidden";
+		document.querySelector(".final-playlist-button").style.visibility = "hidden";
+	}
+	
+	if(document.querySelector(".hr-after-body-weather")){
+		var newHr = document.querySelector(".hr-after-body-weather");
+		if (newHr.parentNode) {
+  			newHr.parentNode.removeChild(newHr) ;
+  			
+		}
+	}
+	
 	
 	
 	//take city input
