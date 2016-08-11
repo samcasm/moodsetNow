@@ -46,8 +46,7 @@ weatherButton.addEventListener("click",function(){
 		var newHr = document.querySelector(".hr-after-body-weather");
 		if (newHr.parentNode) {
   			newHr.parentNode.removeChild(newHr) ;
-  			console.log("hr removed");
-  			console.log("seems like i gta make a substantial change");
+  			
 		}
 	}
 	
@@ -141,6 +140,7 @@ function hoora(response){
 
 	
 	document.querySelector("#create-button").style.visibility = "visible";
+	document.querySelector("#create-button").style.transition = "all 3s";
 	var hr = document.createElement("hr");
 	document.querySelector(".body-weather").appendChild(hr);
 	hr.className = "hr-after-body-weather";
@@ -228,8 +228,9 @@ function spotifyFunction(response){
 	});
 	//displays the playlists
 	document.querySelector("#table-show-playlist").style.visibility="visible";
+	document.querySelector("#table-show-playlist").style.transition="all 3s";
 	document.querySelector(".final-playlist-button").style.visibility = "visible";
-
+	document.querySelector(".final-playlist-button").style.transition = "all 3s";
 
 	//collect playlist ids an array
 		var playlistUrls = new Array();
@@ -330,6 +331,7 @@ function makeFinalPlaylist(){
 	}
 	
 	document.querySelector(".final-playlist-table").style.visibility = "visible";
+	document.querySelector(".final-playlist-table").style.transition = "all 3s";
 		
 	makeIframePlayer(newTracks);
 
@@ -350,11 +352,6 @@ function makeIframePlayer(newTracks){
 		console.log(iframeSrc);
 		window.location.href = iframeSrc;
 	});
-	
-
-	
-
-	
 
 }
 
