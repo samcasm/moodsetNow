@@ -175,6 +175,7 @@ function hoora(response){
 	
 	console.log("HERE I AM",globals['spinner']);
 	console.log(globals['spinner'].stop);
+	console.log(!document.querySelector('.icon-temperature').innerHTML==="");
 	if(!document.querySelector('.icon-temperature').innerHTML===""){
 		console.log(globals['spinner']);
 		globals['spinner'].stop();
