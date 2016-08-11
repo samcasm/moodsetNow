@@ -50,7 +50,7 @@ weatherButton.addEventListener("click",function(){
 		}
 	}
 	
-	if(!document.querySelector('.body-weather')){
+	if(document.querySelector('.icon-temperature')===""){
 		//spinner.js
 		var opts = {
 			  lines: 11 // The number of lines to draw
