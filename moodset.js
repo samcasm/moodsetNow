@@ -172,7 +172,9 @@ function hoora(response){
 	var summary = response.currently.summary;
 	var iconSumm = document.querySelector(".icon-summary");
 	iconSumm.innerHTML = " \" " +summary+ " \" ";
-
+	
+	console.log("HERE I AM",globals['spinner']);
+	console.log(globals['spinner'].stop);
 	if(!document.querySelector('.icon-temperature').innerHTML===""){
 		console.log(globals['spinner']);
 		globals['spinner'].stop();
