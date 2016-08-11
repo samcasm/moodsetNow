@@ -174,7 +174,9 @@ function hoora(response){
 	iconSumm.innerHTML = " \" " +summary+ " \" ";
 
 	if(!document.querySelector('.icon-temperature').innerHTML===""){
-		global['spinner'].stop();
+		console.log(globals['spinner']);
+		globals['spinner'].stop();
+		
 	}
 	document.querySelector("#create-button").style.visibility = "visible";
 	var hr = document.createElement("hr");
