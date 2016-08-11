@@ -31,7 +31,7 @@ var tracks = []	;
 var weatherButton = document.querySelector(".weather-button");
 
 weatherButton.addEventListener("click",function(){
-	if(document.querySelector('.icon-temperature')===""){
+	if(document.querySelector('.icon-temperature').innerHTML===""){
 		//spinner.js
 		var opts = {
 			  lines: 11 // The number of lines to draw
