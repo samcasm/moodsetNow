@@ -31,6 +31,7 @@ var tracks = []	;
 var weatherButton = document.querySelector(".weather-button");
 
 weatherButton.addEventListener("click",function(){
+	
 	if(document.querySelector('.icon-temperature').innerHTML===""){
 		//spinner.js
 		var opts = {
@@ -38,7 +39,7 @@ weatherButton.addEventListener("click",function(){
 			, length: 25 // The length of each line
 			, width: 8 // The line thickness
 			, radius: 30 // The radius of the inner circle
-			, scale: 1.25 // Scales overall size of the spinner
+			, scale: 0.5 // Scales overall size of the spinner
 			, corners: 1 // Corner roundness (0..1)
 			, color: '#000' // #rgb or #rrggbb or array of colors
 			, opacity: 0.3 // Opacity of the lines
@@ -55,12 +56,12 @@ weatherButton.addEventListener("click",function(){
 			, hwaccel: false // Whether to use hardware acceleration
 			, position: 'absolute' // Element positioning
 		}
-		console.log("i am in the spinner");
-		var target = document.querySelector('.spinner-div-1');
-		var spinner = new Spinner(opts).spin(target);
-		console.log("Just got done with the spinner");
-	}
 	
+		var target = document.querySelector('.spinner-div-1');
+		globals['spinner'] = new Spinner(opts).spin(target);
+		console.log(globals['spinner']);
+	
+	}
 	
 	//clear preiously executed queries
 	document.querySelector(".show-playlists").innerHTML = " ";
@@ -80,6 +81,7 @@ weatherButton.addEventListener("click",function(){
   			
 		}
 	}
+	
 	
 	
 	
@@ -171,12 +173,14 @@ function hoora(response){
 	var iconSumm = document.querySelector(".icon-summary");
 	iconSumm.innerHTML = " \" " +summary+ " \" ";
 
-	
+	if(!document.querySelector('.icon-temperature').innerHTML===""){
+		global['spinner'].stop();
+	}
 	document.querySelector("#create-button").style.visibility = "visible";
-	document.querySelector("#create-button").style.transition = "all 3s";
 	var hr = document.createElement("hr");
 	document.querySelector(".body-weather").appendChild(hr);
 	hr.className = "hr-after-body-weather";
+	
 
 }
 
