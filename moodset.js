@@ -119,11 +119,7 @@ function hoora(response){
 	
 	//stop spinner
 	var targetId = document.querySelector('.icon-temperature');
-	if(!(targetId.innerHTML===" ")){
-	
-		globals['spinner'].stop();
-		
-	}
+	stopSpinner(targetId);
 	
 	document.querySelector("#create-button").style.visibility = "visible";
 	var hr = document.createElement("hr");
@@ -470,5 +466,13 @@ function startSpinner(checkEl,targetEl){
 		
 		globals['spinner'] = new Spinner(opts).spin(targetEl);
 		console.log(globals['spinner'],"logging global spinner");
+	}
+}
+
+function stopSpinner(targetId){
+	if(!(targetId.innerHTML===" ")){
+	
+		globals['spinner'].stop();
+		
 	}
 }
