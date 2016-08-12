@@ -33,7 +33,7 @@ var weatherButton = document.querySelector(".weather-button");
 weatherButton.addEventListener("click",function(){
 	
 	//spinner for show playlists
-	if(document.querySelector('.icon-temperature').innerHTML===" "){
+	if(document.querySelector('.icon-temperature').innerHTML===""){
 	
 		//spinner.js
 		var opts = {
@@ -146,7 +146,7 @@ function hoora(response){
 	
 	//stop spinner
 	var targetId = document.querySelector('.icon-temperature');
-	if(!(targetId.innerHTML===" ")){
+	if(!(targetId.innerHTML==="")){
 	
 		globals['spinner'].stop();
 		
