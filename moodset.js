@@ -192,10 +192,10 @@ function hoora(response){
 	////////////    	SPOTIFY DEVELOPER API  //////////////////////
 var createPlaylistButton = document.querySelector('#create-button');
 createPlaylistButton.addEventListener("click",function(){
-	console.log("Show playlists",document.querySelector('.show-playlists').innerHTML=== " ");
+	
 	//spinner for show playlists
 	if(document.querySelector('.show-playlists').innerHTML===" "){
-		console.log("IM in");
+	
 		//spinner.js
 		var opts = {
 			  lines: 11 // The number of lines to draw
@@ -221,9 +221,9 @@ createPlaylistButton.addEventListener("click",function(){
 		}
 	
 		var target = document.querySelector('.spinner-div-2');
-		console.log(target);
+	
 		globals['spinner'] = new Spinner(opts).spin(target);
-		console.log(globals['spinner']);
+	
 		
 	
 	}
@@ -306,7 +306,7 @@ function spotifyFunction(response){
 	});
 	
 	//stop spinner for show playlists
-	if(!(document.querySelector('.show-playlists').innerHTML==="")){
+	if(!(document.querySelector('.show-playlists').innerHTML===" ")){
 	
 		globals['spinner'].stop();
 		
@@ -360,6 +360,41 @@ finalPlaylistButton.addEventListener("click",makeFinalPlaylist);
 //display final mashed up playlist 
 function makeFinalPlaylist(){
 	
+	//spinner for show playlists
+	if(document.querySelector('.final-playlist').innerHTML===" "){
+	
+		//spinner.js
+		var opts = {
+			  lines: 11 // The number of lines to draw
+			, length: 25 // The length of each line
+			, width: 8 // The line thickness
+			, radius: 30 // The radius of the inner circle
+			, scale: 0.5 // Scales overall size of the spinner
+			, corners: 1 // Corner roundness (0..1)
+			, color: '#000' // #rgb or #rrggbb or array of colors
+			, opacity: 0.3 // Opacity of the lines
+			, rotate: 0 // The rotation offset
+			, direction: 1 // 1: clockwise, -1: counterclockwise
+			, speed: 1 // Rounds per second
+			, trail: 60 // Afterglow percentage
+			, fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+			, zIndex: 2e9 // The z-index (defaults to 2000000000)
+			, className: 'spinner' // The CSS class to assign to the spinner
+			, top: '50%' // Top position relative to parent
+			, left: '50%' // Left position relative to parent
+			, shadow: false // Whether to render a shadow
+			, hwaccel: false // Whether to use hardware acceleration
+			, position: 'absolute' // Element positioning
+		}
+	
+		var target = document.querySelector('.spinner-div-3');
+		console.log("In here too");
+		globals['spinner'] = new Spinner(opts).spin(target);
+	
+		
+	
+	}
+	
 	//filter tracks for promos and ads that are 60secs or less duration
 	tracks = tracks.filter(function(track){
 	var duration_ms = track.track.duration_ms;
@@ -381,8 +416,6 @@ function makeFinalPlaylist(){
 	tracks = tracks.filter( function( el ){ return (typeof el !== "undefined"); } );
 
 	var newTracks = tracks.slice(0,10);
-	console.log(tracks,"all filtered tracks")
-	console.log(newTracks,"the chosen 10");
 	
 	//create final playlist elements, fill in their data and append them to the body
 	for(i=0;i<newTracks.length;i++){
@@ -413,10 +446,15 @@ function makeFinalPlaylist(){
 		var finalPlaylist = document.querySelector(".final-playlist");
 		finalPlaylist.appendChild(tr);
 	}
+	//stop spinner for final playlist
+	if(!(document.querySelector('.final-playlist').innerHTML===" ")){
+	
+		globals['spinner'].stop();
+		
+	}
 	
 	document.querySelector(".final-playlist-table").style.visibility = "visible";
-	document.querySelector(".final-playlist-table").style.transition = "all 3s";
-		
+
 	makeIframePlayer(newTracks);
 
 }
