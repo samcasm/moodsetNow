@@ -31,37 +31,11 @@ var tracks = []	;
 var weatherButton = document.querySelector(".weather-button");
 
 weatherButton.addEventListener("click",function(){
-	//spinner
-	if(document.querySelector('.icon-temperature').innerHTML===""){
-		//spinner.js
-		var opts = {
-			  lines: 11 // The number of lines to draw
-			, length: 25 // The length of each line
-			, width: 8 // The line thickness
-			, radius: 30 // The radius of the inner circle
-			, scale: 0.5 // Scales overall size of the spinner
-			, corners: 1 // Corner roundness (0..1)
-			, color: '#000' // #rgb or #rrggbb or array of colors
-			, opacity: 0.3 // Opacity of the lines
-			, rotate: 0 // The rotation offset
-			, direction: 1 // 1: clockwise, -1: counterclockwise
-			, speed: 1 // Rounds per second
-			, trail: 60 // Afterglow percentage
-			, fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
-			, zIndex: 2e9 // The z-index (defaults to 2000000000)
-			, className: 'spinner' // The CSS class to assign to the spinner
-			, top: '50%' // Top position relative to parent
-			, left: '50%' // Left position relative to parent
-			, shadow: false // Whether to render a shadow
-			, hwaccel: false // Whether to use hardware acceleration
-			, position: 'absolute' // Element positioning
-		}
+	//invoking startSpinner
+	var iconTemp = document.querySelector('.icon-temperature');
+	var target = document.querySelector('.spinner-div-1');
+	startSpinner(iconTemp,target);
 	
-		var target = document.querySelector('.spinner-div-1');
-		globals['spinner'] = new Spinner(opts).spin(target);
-	
-	
-	}
 	
 	//clear preiously executed queries
 	document.querySelector(".show-playlists").innerHTML = " ";
@@ -144,11 +118,8 @@ function hoora(response){
 	iconSumm.innerHTML = " \" " +summary+ " \" ";
 	
 	//stop spinner
-	console.log(!(document.querySelector('.icon-temperature').innerHTML===""));
-	if(!(document.querySelector('.icon-temperature').innerHTML==="")){
-	
-		globals['spinner'].stop();
-	}
+	var targetId = document.querySelector('.icon-temperature');
+	stopSpinner(targetId);
 	
 	document.querySelector("#create-button").style.visibility = "visible";
 	var hr = document.createElement("hr");
@@ -357,7 +328,7 @@ function makeFinalPlaylist(){
 		}
 	
 		var target = document.querySelector('.spinner-div-3');
-		console.log("In here too");
+		
 		globals['spinner'] = new Spinner(opts).spin(target);
 	
 		
@@ -461,4 +432,47 @@ function secondsToTime(secs){
         "s": seconds
     };
     return obj;
+}
+
+function startSpinner(checkEl,divPlacement){
+	//spinner for show playlists
+	if(checkEl.innerHTML===" "){
+	
+		//spinner.js
+		var opts = {
+			  lines: 11 // The number of lines to draw
+			, length: 25 // The length of each line
+			, width: 8 // The line thickness
+			, radius: 30 // The radius of the inner circle
+			, scale: 0.5 // Scales overall size of the spinner
+			, corners: 1 // Corner roundness (0..1)
+			, color: '#000' // #rgb or #rrggbb or array of colors
+			, opacity: 0.3 // Opacity of the lines
+			, rotate: 0 // The rotation offset
+			, direction: 1 // 1: clockwise, -1: counterclockwise
+			, speed: 1 // Rounds per second
+			, trail: 60 // Afterglow percentage
+			, fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+			, zIndex: 2e9 // The z-index (defaults to 2000000000)
+			, className: 'spinner' // The CSS class to assign to the spinner
+			, top: '50%' // Top position relative to parent
+			, left: '50%' // Left position relative to parent
+			, shadow: false // Whether to render a shadow
+			, hwaccel: false // Whether to use hardware acceleration
+			, position: 'absolute' // Element positioning
+		}
+	
+		var target = divPlacement;
+		
+		globals['spinner'] = new Spinner(opts).spin(target);
+	
+	}
+}
+
+function stopSpinner(targetId){
+	if(!(targetId.innerHTML===" ")){
+	
+		globals['spinner'].stop();
+		
+	}
 }
