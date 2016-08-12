@@ -33,7 +33,9 @@ var weatherButton = document.querySelector(".weather-button");
 weatherButton.addEventListener("click",function(){
 	//invoking the startSpinner function
 	var targetEl = document.querySelector('.spinner-div-1');
+	console.log(targetEl);
 	var checkEl = document.querySelector('.icon-temperature');
+	console.log(checkEl);
 	startSpinner(targetEl,checkEl);
 	
 	
@@ -437,8 +439,9 @@ function secondsToTime(secs){
 }
 
 function startSpinner(checkEl,targetEl){
+	console.log(checkEl,targetEl);
 	if(checkEl.innerHTML===" "){
-	
+	console.log("Im in start spinner");
 		//spinner.js
 		var opts = {
 			  lines: 11 // The number of lines to draw
@@ -466,6 +469,6 @@ function startSpinner(checkEl,targetEl){
 	
 		
 		globals['spinner'] = new Spinner(opts).spin(targetEl);
-	
+		console.log(globals['spinner'],logging global spinner);
 	}
 }
