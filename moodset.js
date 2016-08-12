@@ -192,9 +192,9 @@ function hoora(response){
 	////////////    	SPOTIFY DEVELOPER API  //////////////////////
 var createPlaylistButton = document.querySelector('#create-button');
 createPlaylistButton.addEventListener("click",function(){
-	console.log("Show playlists",document.querySelector('.show-playlists').innerHTML==="");
+	console.log("Show playlists",document.querySelector('.show-playlists').innerHTML=== " ");
 	//spinner for show playlists
-	if(document.querySelector('.show-playlists').innerHTML===""){
+	if(document.querySelector('.show-playlists').innerHTML===" "){
 		console.log("IM in");
 		//spinner.js
 		var opts = {
