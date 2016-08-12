@@ -173,11 +173,10 @@ function hoora(response){
 	var iconSumm = document.querySelector(".icon-summary");
 	iconSumm.innerHTML = " \" " +summary+ " \" ";
 	
-	console.log("HERE I AM",globals['spinner']);
-	console.log(globals['spinner'].stop);
-	console.log(!document.querySelector('.icon-temperature').innerHTML==="");
-	if(!document.querySelector('.icon-temperature').innerHTML===""){
-		console.log(globals['spinner']);
+	
+	console.log(!(document.querySelector('.icon-temperature').innerHTML===""));
+	if(!(document.querySelector('.icon-temperature').innerHTML==="")){
+	
 		globals['spinner'].stop();
 		
 	}
