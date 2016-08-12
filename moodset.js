@@ -59,7 +59,7 @@ weatherButton.addEventListener("click",function(){
 	
 		var target = document.querySelector('.spinner-div-1');
 		globals['spinner'] = new Spinner(opts).spin(target);
-		console.log(globals['spinner']);
+	
 	
 	}
 	
@@ -192,9 +192,10 @@ function hoora(response){
 	////////////    	SPOTIFY DEVELOPER API  //////////////////////
 var createPlaylistButton = document.querySelector('#create-button');
 createPlaylistButton.addEventListener("click",function(){
-	
-	//spinner
+	console.log("Show playlists",document.querySelector('.show-playlists').innerHTML==="");
+	//spinner for show playlists
 	if(document.querySelector('.show-playlists').innerHTML===""){
+		console.log("IM in");
 		//spinner.js
 		var opts = {
 			  lines: 11 // The number of lines to draw
@@ -220,7 +221,9 @@ createPlaylistButton.addEventListener("click",function(){
 		}
 	
 		var target = document.querySelector('.spinner-div-2');
+		console.log(target);
 		globals['spinner'] = new Spinner(opts).spin(target);
+		console.log(globals['spinner']);
 		
 	
 	}
