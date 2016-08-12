@@ -124,37 +124,7 @@ weatherButton.addEventListener("click",function(){
 function hoora(response){
 	console.log(response);
 	globals['iconCurrent'] = response.currently.icon;
-	
-	// //load background
-	// var newbg = "";
-	// if(globals['iconCurrent'] == "clear-day"){
-	// 	newbg = "http://www.bullshift.net/data/images/2013/11/al-59840.jpg";
-	// }else if(globals['iconCurrent'] == "clear-night"){
-	// 	newbg = "http://imgview.info/download/20150712/manhattan-city-new-york-light-river-night-clear-sky-hd-wallpaper-1920x1200.jpg";
-	// }else if(globals['iconCurrent'] == "partly-cloudy-day"){
-	// 	newbg = "http://eskipaper.com/images/cloudy-sky-9.jpg";
-	// }else if (globals['iconCurrent'] == "partly-cloudy-night"){
-	// 	newbg = "http://wallpaperbeta.com/wallpaper_3840x2160/storm_field_spikelets_cloudy_landscapes_ultra_3840x2160_hd-wallpaper-149115.jpg";
-	// }else if(globals['iconCurrent'] == "cloudy"){
-	// 	newbg = "http://www.thecitypictures.net/wp-content/uploads/cloudy-shanghai-skyline.jpg";
-	// }else if(globals['iconCurrent']=="rain"){
-	// 	newbg="http://www.hd-wallpapers9.com/Thumbnail-Gallery/Natural/Rain%20Wallpapers/Rain%20Wallpapers003.jpg";
-	// }else if(globals['iconCurrent'] == "sleet"){
-	// 	newbg = "http://cdn1.theodysseyonline.com/files/2016/01/21/6358899960068147322127282582_635861833670816810507191518_6670-perfect-snow-1920x1080-nature-wallpaper.jpg"
-	// }else if(globals['iconCurrent'] == "snow"){
-	// 	newbg = "http://www.team-bhp.com/forum/attachments/travelogues/1215911d1394086824-un-chained-melody-36-hours-snow-manali-leh-highway-d70005815xl.jpg";
-	// }else if(globals['iconCurrent'] == "wind"){
-	// 	newbg = "http://www.walldevil.com/wallpapers/a81/sea-ocean-sky-cloud-wind-storm-palm.jpg";
-	// }else if(globals['iconCurrent'] == "fog"){
-	// 	newbg = "https://wallpaperscraft.com/image/new_york_bridge_fog_rain_59529_3840x2160.jpg";
-	// }
-	
-	// var bgDiv = document.querySelector(".bg-div");
-	// bgDiv.style.backgroundImage = "url(" + newbg + ")";
-	// bgDiv.style.backgroundAttachment = "fixed";
-	// bgDiv.style.backgroundRepeat = "no-repeat";
-	// bgDiv.style.backgroundSize = "cover";
-	
+
 	//load icon
 	var skycons = new Skycons({"color": "#5bc0de"});
 	skycons.add(document.getElementById("icon1"), globals['iconCurrent']);
@@ -178,7 +148,6 @@ function hoora(response){
 	if(!(document.querySelector('.icon-temperature').innerHTML==="")){
 	
 		globals['spinner'].stop();
-		
 	}
 	
 	document.querySelector("#create-button").style.visibility = "visible";
@@ -189,7 +158,7 @@ function hoora(response){
 
 }
 
-	////////////    	SPOTIFY DEVELOPER API  //////////////////////
+	////////////    	SPOTIFY DEVELOPER API  		//////////////////////
 var createPlaylistButton = document.querySelector('#create-button');
 createPlaylistButton.addEventListener("click",function(){
 	
