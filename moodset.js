@@ -469,6 +469,6 @@ function startSpinner(checkEl,targetEl){
 	
 		
 		globals['spinner'] = new Spinner(opts).spin(targetEl);
-		console.log(globals['spinner'],logging global spinner);
+		console.log(globals['spinner'],"logging global spinner");
 	}
 }
