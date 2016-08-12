@@ -36,7 +36,7 @@ weatherButton.addEventListener("click",function(){
 	console.log(targetEl);
 	var checkEl = document.querySelector('.icon-temperature');
 	console.log(checkEl);
-	startSpinner(targetEl,checkEl)
+	startSpinner(checkEl,targetEl)
 	
 	
 	//clear preiously executed queries
