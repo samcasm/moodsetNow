@@ -117,7 +117,7 @@ function hoora(response){
 	
 	//stop spinner
 	var targetId = document.querySelector('.icon-temperature');
-	if(!(targetId.innerHTML==="")){
+	if(!(targetId.innerHTML===" ")){
 	
 		globals['spinner'].stop();
 		
