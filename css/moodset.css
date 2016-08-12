@@ -21,6 +21,9 @@ i{
 	display: inline-block;
 }
 
+.buttons{
+	border-radius:25px;
+}
 
 .table.table-striped{
 	border:none;
